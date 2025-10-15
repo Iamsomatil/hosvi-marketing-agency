@@ -62,7 +62,6 @@ export async function POST(req: NextRequest) {
       ],
       allow_promotion_codes: true,
       subscription_data: {
-        trial_from_plan: true,
         metadata: {
           orgId: resolvedOrgId ?? "",
           userId: userId ?? "",
