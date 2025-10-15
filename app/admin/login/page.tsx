@@ -1,20 +1,24 @@
-'use client';
+"use client";
+// This page is marked dynamic to avoid Next.js prerender errors when using useSearchParams()
+// and Suspense wrappers.
+export const dynamic = "force-dynamic";
+export const fetchCache = "default-no-store";
 
-import { useState } from 'react';
-import { signIn } from 'next-auth/react';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { toast } from 'react-hot-toast';
-import Link from 'next/link';
-import { ArrowLeft, Lock, Mail } from 'lucide-react';
+import React, { Suspense, useState } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { toast } from "react-hot-toast";
+import Link from "next/link";
+import { ArrowLeft, Lock, Mail } from "lucide-react";
 
-export default function AdminLoginPage() {
+function AdminLoginPageInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl') || '/admin';
+  const callbackUrl = searchParams.get("callbackUrl") || "/admin";
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -22,7 +26,7 @@ export default function AdminLoginPage() {
     setIsLoading(true);
 
     try {
-      const result = await signIn('credentials', {
+      const result = await signIn("credentials", {
         email: formData.email,
         password: formData.password,
         redirect: false,
@@ -30,13 +34,13 @@ export default function AdminLoginPage() {
       });
 
       if (result?.error) {
-        toast.error('Invalid credentials or insufficient permissions');
+        toast.error("Invalid credentials or insufficient permissions");
       } else {
         // The callback will handle the redirect based on the user's role
         router.push(callbackUrl);
       }
     } catch (error) {
-      toast.error('Something went wrong. Please try again.');
+      toast.error("Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -130,17 +134,17 @@ export default function AdminLoginPage() {
               type="submit"
               disabled={isLoading}
               className={`group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${
-                isLoading ? 'opacity-70 cursor-not-allowed' : ''
+                isLoading ? "opacity-70 cursor-not-allowed" : ""
               }`}
             >
-              {isLoading ? 'Signing in...' : 'Sign in'}
+              {isLoading ? "Signing in..." : "Sign in"}
             </button>
           </div>
         </form>
 
         <div className="text-center text-sm text-slate-600 dark:text-slate-400">
           <p>
-            Not an admin?{' '}
+            Not an admin?{" "}
             <Link
               href="/login"
               className="font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
@@ -151,5 +155,13 @@ export default function AdminLoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AdminLoginPage() {
+  return (
+    <Suspense fallback={null}>
+      <AdminLoginPageInner />
+    </Suspense>
   );
 }

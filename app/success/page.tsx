@@ -1,9 +1,14 @@
 "use client";
+// This page is marked dynamic to avoid Next.js prerender errors when using useSearchParams()
+// and Suspense wrappers.
+export const dynamic = "force-dynamic";
+export const fetchCache = "default-no-store";
 
+import React, { Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
-export default function SuccessPage() {
+function SuccessPageInner() {
   const params = useSearchParams();
   const sessionId = params.get("session_id");
 
@@ -31,5 +36,13 @@ export default function SuccessPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={null}>
+      <SuccessPageInner />
+    </Suspense>
   );
 }
