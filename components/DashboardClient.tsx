@@ -1,4 +1,4 @@
-git "use client";
+"use client";
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -224,7 +224,7 @@ export default function DashboardClient({ org }: { org: any }) {
                 </span>
                 {org.stripeSubscriptionStatus && (
                   <span className="px-2 py-1 rounded-full bg-indigo-100 text-indigo-700">
-                    Status:{" "}
+                    Status: {""}
                     <span className="font-medium">
                       {org.stripeSubscriptionStatus}
                     </span>
