@@ -5,10 +5,18 @@ import { prisma } from "../../../../lib/prisma";
 import { subDays, format } from "date-fns";
 
 export async function GET(request: NextRequest) {
+  console.log('Dashboard summary API called');
   const session = await getServerSession(authOptions);
+  console.log('Session in API:', JSON.stringify(session, null, 2));
 
-  if (!session || !session.user.orgId) {
-    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+  if (!session) {
+    console.error('No session found');
+    return NextResponse.json({ message: "No session found" }, { status: 401 });
+  }
+
+  if (!session.user?.orgId) {
+    console.error('No orgId in session. User data:', JSON.stringify(session.user, null, 2));
+    return NextResponse.json({ message: "Organization ID not found in session" }, { status: 401 });
   }
 
   try {

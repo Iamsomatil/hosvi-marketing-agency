@@ -57,8 +57,8 @@ export default function LegalPage() {
                 
                 <h3 className="text-lg font-semibold text-slate-900">Pricing</h3>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li>Basic Plan: $1,500/month</li>
-                  <li>Premium Plan: $3,000/month</li>
+                  <li>Basic Plan: $495/month</li>
+                  <li>Premium Plan: $995/month</li>
                   <li>Prices subject to change with 30-day notice</li>
                 </ul>
                 

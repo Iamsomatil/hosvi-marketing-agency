@@ -3,15 +3,22 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { Menu, X, ArrowRight, User, LogOut, ChevronDown } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { useUserSession } from "@/hooks/use-session";
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const drawerRef = useRef<HTMLDivElement | null>(null);
   const firstLinkRef = useRef<HTMLAnchorElement | null>(null);
   const closeBtnRef = useRef<HTMLButtonElement | null>(null);
   const pathname = usePathname();
+  const router = useRouter();
+  const { session, isAdmin, isLoading, isAuthenticated, handleSignOut } =
+    useUserSession();
+
+  const user = session?.user;
 
   useEffect(() => {
     if (open) {
@@ -49,116 +56,326 @@ export default function NavBar() {
   }, [pathname]);
 
   const navItems = [
-    { href: "/", label: "Home" },
-    { href: "#services", label: "Services" },
-    { href: "#pricing", label: "Pricing" },
-    { href: "#testimonials", label: "Testimonials" },
-    { href: "#contact", label: "Contact" },
+    { href: "/#services", label: "Services" },
+    { href: "/#pricing", label: "Pricing" },
+    { href: "/#testimonials", label: "Testimonials" },
+    { href: "/about", label: "About" },
+    { href: "/#contact", label: "Contact" },
   ];
 
   return (
-    <header className="sticky top-0 z-50">
-      <div className="mx-auto container px-4">
-        <nav className="mt-3 mb-3 glass rounded-full px-4 py-3 flex items-center justify-between shadow-sm">
-          <div className="flex items-center gap-3">
+    <header className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className="flex items-center justify-between py-4 px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center">
             <Link
               href="/"
-              className="flex items-center gap-3"
-              aria-label="Hosvi home"
+              className="flex items-center"
+              ref={firstLinkRef}
+              onClick={() => setOpen(false)}
             >
               <Image
                 src="/hosvi-logo.jpg"
-                alt="Hosvi logo"
-                width={200}
-                height={56}
-                className="h-14 w-auto object-contain rounded-md"
-                priority={false}
+                alt="Hosvi Logo"
+                width={40}
+                height={40}
+                className="h-10 w-10 rounded-full"
+                priority
               />
+              <span className="ml-3 text-xl font-bold text-slate-900 dark:text-white">
+                Hosvi
+              </span>
             </Link>
           </div>
-
-          <ul className="hidden md:flex items-center gap-6">
+          <div className="hidden md:ml-10 md:flex md:space-x-8">
             {navItems.map((item) => (
-              <li key={item.label}>
-                <Link
-                  href={item.href}
-                  className="nav-underline px-1 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded"
-                  aria-current={pathname === item.href ? "page" : undefined}
-                >
-                  {item.label}
-                </Link>
-              </li>
+              <Link
+                key={item.label}
+                href={item.href}
+                className="text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors duration-200"
+                scroll={true}
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </Link>
             ))}
-          </ul>
-
-          <div className="hidden md:flex items-center gap-3">
-            <Link
-              href="/trial"
-              className="btn-gradient bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-cyan-400 text-white px-5 py-2.5 text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-400"
-            >
-              Book Free 30-Day Trial
-            </Link>
           </div>
+          <div className="hidden md:flex items-center space-x-4">
+            {isAuthenticated ? (
+              <div className="relative">
+                <button
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="flex items-center space-x-1 text-sm font-medium text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 focus:outline-none"
+                  aria-expanded={isDropdownOpen}
+                  aria-haspopup="true"
+                >
+                  <span className="truncate max-w-[120px]">
+                    {user?.name || user?.email?.split("@")[0]}
+                  </span>
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform ${
+                      isDropdownOpen ? "transform rotate-180" : ""
+                    }`}
+                  />
+                </button>
 
-          <button
-            type="button"
-            aria-label="Open menu"
-            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
-            onClick={() => setOpen(true)}
-          >
-            <Menu className="w-6 h-6" />
-          </button>
+                {isDropdownOpen && (
+                  <div
+                    className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-slate-800 ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="user-menu-button"
+                    tabIndex={-1}
+                  >
+                    <div className="py-1" role="none">
+                      <Link
+                        href="/dashboard"
+                        className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                        role="menuitem"
+                        tabIndex={-1}
+                        onClick={() => setIsDropdownOpen(false)}
+                      >
+                        Dashboard
+                      </Link>
+                      {isAdmin && (
+                        <Link
+                          href="/admin"
+                          className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                          role="menuitem"
+                          tabIndex={-1}
+                          onClick={() => setIsDropdownOpen(false)}
+                        >
+                          Admin Panel
+                        </Link>
+                      )}
+                      <button
+                        onClick={async () => {
+                          await handleSignOut();
+                          setIsDropdownOpen(false);
+                        }}
+                        className="w-full text-left px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700"
+                        role="menuitem"
+                        tabIndex={-1}
+                      >
+                        Sign out
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  onClick={() => {
+                    try {
+                      router.push("/login");
+                    } catch {
+                    } finally {
+                      if (typeof window !== "undefined")
+                        window.location.assign("/login");
+                    }
+                  }}
+                  className="text-sm font-medium text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 transition-colors"
+                >
+                  Log in
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    try {
+                      router.push("/trial");
+                    } catch {
+                    } finally {
+                      if (typeof window !== "undefined")
+                        window.location.assign("/trial");
+                    }
+                  }}
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                >
+                  Start Free Trial
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </button>
+              </>
+            )}
+          </div>
+          <div className="flex items-center md:hidden space-x-2">
+            {isAuthenticated && !isLoading && (
+              <Link
+                href="/dashboard"
+                className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700"
+                aria-label="Dashboard"
+              >
+                <User className="h-5 w-5 text-slate-700 dark:text-slate-300" />
+              </Link>
+            )}
+            <button
+              type="button"
+              className="inline-flex items-center justify-center p-2 rounded-md text-slate-500 hover:text-slate-700 hover:bg-slate-100 dark:text-slate-400 dark:hover:text-slate-300 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              onClick={() => setOpen(true)}
+              aria-label="Open main menu"
+              ref={closeBtnRef}
+            >
+              <Menu className="h-6 w-6" />
+            </button>
+          </div>
         </nav>
       </div>
 
-      {/* Mobile Drawer */}
-      {open && (
-        <div className="fixed inset-0 z-50" aria-modal="true" role="dialog">
-          <div
-            className="absolute inset-0 bg-black/40"
-            onClick={() => setOpen(false)}
-            aria-hidden="true"
-          />
-          <div
-            ref={drawerRef}
-            className="absolute right-0 top-0 h-full w-80 max-w-[85vw] glass backdrop-blur-xl bg-white/70 dark:bg-slate-900/70 shadow-xl p-6 flex flex-col"
-          >
-            <div className="flex items-center justify-between mb-6">
-              <span className="text-slate-900 font-semibold">Menu</span>
+      {/* Mobile menu */}
+      <div
+        className={`fixed inset-0 z-50 transition-all duration-300 ease-in-out transform ${
+          open
+            ? "opacity-100 translate-x-0"
+            : "opacity-0 -translate-x-full pointer-events-none"
+        } md:hidden`}
+        role="dialog"
+        aria-modal="true"
+      >
+        <div
+          className="fixed inset-0 bg-black/50"
+          onClick={() => setOpen(false)}
+          aria-hidden="true"
+        />
+
+        <div
+          ref={drawerRef}
+          className="relative flex flex-col w-full max-w-xs h-full bg-white dark:bg-slate-900 shadow-xl overflow-y-auto"
+        >
+          <div className="px-4 pt-5 pb-6 flex items-center justify-between border-b border-slate-200 dark:border-slate-800">
+            <div className="flex items-center">
+              <Image
+                src="/hosvi-logo.jpg"
+                alt="Hosvi logo"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+                quality={90}
+              />
+            </div>
+            <div className="ml-3 h-7 flex items-center">
               <button
                 ref={closeBtnRef}
+                type="button"
                 onClick={() => setOpen(false)}
-                className="w-10 h-10 inline-flex items-center justify-center rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
-                aria-label="Close menu"
+                className="rounded-md text-slate-400 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               >
-                <X className="w-6 h-6" />
+                <span className="sr-only">Close menu</span>
+                <X className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
-            <div className="flex-1 overflow-y-auto">
-              <ul className="space-y-2">
-                {navItems.map((item, idx) => (
-                  <li key={item.label}>
-                    <Link
-                      ref={idx === 0 ? firstLinkRef : undefined}
-                      href={item.href}
-                      className="block px-3 py-3 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+          </div>
+
+          <div className="px-4 py-6 space-y-4">
+            <div className="flex flex-col space-y-4">
+              <Link
+                href="/#services"
+                className="text-sm font-medium text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                Services
+              </Link>
+              <Link
+                href="/#pricing"
+                className="text-sm font-medium text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                Pricing
+              </Link>
+              <Link
+                href="/#testimonials"
+                className="text-sm font-medium text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                Testimonials
+              </Link>
+              <Link
+                href="/about"
+                className="text-sm font-medium text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                About
+              </Link>
+              <Link
+                href="/#contact"
+                className="text-sm font-medium text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                Contact
+              </Link>
             </div>
 
-            <Link
-              href="/trial"
-              className="mt-4 btn-gradient bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-cyan-400 text-white px-5 py-3 text-sm font-semibold text-center"
-            >
-              Book Free 30-Day Trial
-            </Link>
+            <div className="mt-6 space-y-4">
+              {isAuthenticated ? (
+                <>
+                  <Link
+                    href="/dashboard"
+                    className="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800"
+                    onClick={() => setOpen(false)}
+                  >
+                    Go to Dashboard
+                    <ArrowRight className="ml-2 -mr-1 w-5 h-5" />
+                  </Link>
+                  {isAdmin && (
+                    <Link
+                      href="/admin"
+                      className="w-full flex items-center justify-center px-4 py-3 border border-slate-200 dark:border-slate-700 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700"
+                      onClick={() => setOpen(false)}
+                    >
+                      Admin Panel
+                    </Link>
+                  )}
+                  <button
+                    onClick={() => {
+                      handleSignOut();
+                      setOpen(false);
+                    }}
+                    className="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-md text-base font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20"
+                  >
+                    <LogOut className="mr-2 h-5 w-5" />
+                    Sign out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setOpen(false);
+                      try {
+                        router.push("/login");
+                      } catch {
+                      } finally {
+                        if (typeof window !== "undefined")
+                          window.location.assign("/login");
+                      }
+                    }}
+                    className="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800"
+                  >
+                    Log in
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setOpen(false);
+                      try {
+                        router.push("/trial");
+                      } catch {
+                      } finally {
+                        if (typeof window !== "undefined")
+                          window.location.assign("/trial");
+                      }
+                    }}
+                    className="w-full flex items-center justify-center px-4 py-3 border border-slate-200 dark:border-slate-700 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700"
+                  >
+                    Start Free Trial
+                  </button>
+                </>
+              )}
+            </div>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 }

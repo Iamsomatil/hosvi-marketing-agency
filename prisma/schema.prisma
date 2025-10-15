@@ -44,7 +44,7 @@ model User {
   emailVerified DateTime? @map("email_verified")
   image         String?
   passwordHash  String?   @map("password_hash")
-  role          Role      @default(CLIENT)
+  role          String    @default("USER")
   createdAt     DateTime  @default(now()) @map("created_at")
   orgId         String?   @map("org_id")
   
@@ -65,6 +65,7 @@ model VerificationToken {
 }
 
 enum Role {
+  USER
   CLIENT
   ADMIN
 }
@@ -80,6 +81,10 @@ model Org {
   plan         Plan      @default(BASIC)
   trialEndsAt  DateTime? @map("trial_ends_at")
   onboardedAt  DateTime? @map("onboarded_at")
+  stripeCustomerId        String?  @map("stripe_customer_id")
+  stripeSubscriptionId    String?  @map("stripe_subscription_id")
+  stripePriceId           String?  @map("stripe_price_id")
+  stripeSubscriptionStatus String? @map("stripe_subscription_status")
   
   users      User[]
   leads      Lead[]

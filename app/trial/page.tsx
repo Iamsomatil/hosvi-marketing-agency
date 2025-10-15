@@ -226,8 +226,8 @@ export default function TrialPage() {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-cyan-300"
                 >
-                  <option value="BASIC">Basic Plan - $1,500/month</option>
-                  <option value="PREMIUM">Premium Plan - $3,000/month</option>
+                  <option value="BASIC">Basic Plan - $495/month</option>
+                  <option value="PREMIUM">Premium Plan - $995/month</option>
                 </select>
               </div>
               

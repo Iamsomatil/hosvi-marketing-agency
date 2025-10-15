@@ -1,0 +1,23 @@
+{
+  "pages": {
+    "/admin/page": [
+      "static/chunks/[root of the server]__33bd1d._.css",
+      "static/chunks/_60ba47._.js",
+      "static/chunks/node_modules_d3eb66._.js",
+      "static/chunks/app_layout_tsx_bf9380._.js",
+      "static/chunks/node_modules_7531ff._.js",
+      "static/chunks/_808cd9._.js",
+      "static/chunks/app_admin_page_tsx_61fc53._.js",
+      "static/chunks/node_modules_next_dist_compiled_react_a1d82d._.js",
+      "static/chunks/node_modules_next_dist_compiled_react-dom_cjs_react-dom_development_c9a189.js",
+      "static/chunks/node_modules_next_dist_compiled_react-dom_87a050._.js",
+      "static/chunks/node_modules_next_dist_compiled_e13b54._.js",
+      "static/chunks/node_modules_next_dist_client_8bb71d._.js",
+      "static/chunks/node_modules_next_dist_091837._.js",
+      "static/chunks/node_modules_@swc_helpers_cjs_00636a._.js",
+      "static/chunks/[turbopack]_dev_client_hmr-client_ts_4da20b._.js",
+      "static/chunks/node_modules_next_dist_esm_build_templates_app-page_533e35.js",
+      "static/chunks/node_modules_next_dist_esm_build_templates_app-page_11f184.js"
+    ]
+  }
+}
