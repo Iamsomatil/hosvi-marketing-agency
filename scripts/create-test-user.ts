@@ -1,39 +1,39 @@
-import { PrismaClient } from '@prisma/client';
-import bcrypt from 'bcryptjs';
+import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
 async function createTestUser() {
-  const hashedPassword = await bcrypt.hash('test123', 10);
-  
-  // Create test organization
-  const org = await prisma.org.upsert({
-    where: { name: 'Test Org' },
-    update: {},
-    create: {
-      name: 'Test Org',
-      slug: 'test-org',
-      plan: 'PREMIUM',
-    },
-  });
+  const hashedPassword = await bcrypt.hash("test123", 10);
+
+  // Ensure test organization exists (name is not unique, so use find/create)
+  let org = await prisma.org.findFirst({ where: { name: "Test Org" } });
+  if (!org) {
+    org = await prisma.org.create({
+      data: {
+        name: "Test Org",
+        plan: "PREMIUM",
+      },
+    });
+  }
 
   // Create test user
   const user = await prisma.user.upsert({
-    where: { email: 'test@example.com' },
+    where: { email: "test@example.com" },
     update: {},
     create: {
-      email: 'test@example.com',
-      name: 'Test User',
+      email: "test@example.com",
+      name: "Test User",
       passwordHash: hashedPassword,
-      role: 'ADMIN',
+      role: "ADMIN",
       orgId: org.id,
       emailVerified: new Date(),
     },
   });
 
-  console.log('Test user created:');
-  console.log('Email: test@example.com');
-  console.log('Password: test123');
+  console.log("Test user created:");
+  console.log("Email: test@example.com");
+  console.log("Password: test123");
 }
 
 createTestUser()
