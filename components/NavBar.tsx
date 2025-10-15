@@ -222,12 +222,12 @@ export default function NavBar() {
         </nav>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu: full-height top sheet, no inner scroll containers */}
       <div
         className={`fixed inset-0 z-50 transition-all duration-300 ease-in-out transform ${
           open
-            ? "opacity-100 translate-x-0"
-            : "opacity-0 -translate-x-full pointer-events-none"
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-full pointer-events-none"
         } md:hidden`}
         role="dialog"
         aria-modal="true"
@@ -240,139 +240,119 @@ export default function NavBar() {
 
         <div
           ref={drawerRef}
-          className="relative flex flex-col w-full max-w-xs h-full bg-white dark:bg-slate-900 shadow-xl overflow-y-auto"
+          className="relative flex flex-col w-full h-[100dvh] bg-white dark:bg-slate-900 shadow-xl overflow-auto"
         >
-          <div className="px-4 pt-5 pb-6 flex items-center justify-between border-b border-slate-200 dark:border-slate-800">
-            <div className="flex items-center">
-              <Image
-                src="/hosvi-logo.jpg"
-                alt="Hosvi logo"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-                quality={90}
-              />
-            </div>
-            <div className="ml-3 h-7 flex items-center">
+          <div className="sticky top-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+            <div className="px-4 py-4 flex items-center justify-between">
+              <div className="flex items-center">
+                <Image
+                  src="/hosvi-logo.jpg"
+                  alt="Hosvi logo"
+                  width={120}
+                  height={40}
+                  className="h-10 w-auto"
+                  quality={90}
+                />
+              </div>
               <button
                 ref={closeBtnRef}
                 type="button"
                 onClick={() => setOpen(false)}
-                className="rounded-md text-slate-400 hover:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                aria-label="Close menu"
+                className="rounded-md p-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-500"
               >
-                <span className="sr-only">Close menu</span>
                 <X className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
           </div>
 
-          <div className="px-4 py-6 space-y-4">
-            <div className="flex flex-col space-y-4">
-              <Link
-                href="/#services"
-                className="text-sm font-medium text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 transition-colors"
-                onClick={() => setOpen(false)}
-              >
-                Services
-              </Link>
-              <Link
-                href="/#pricing"
-                className="text-sm font-medium text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 transition-colors"
-                onClick={() => setOpen(false)}
-              >
-                Pricing
-              </Link>
-              <Link
-                href="/#testimonials"
-                className="text-sm font-medium text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 transition-colors"
-                onClick={() => setOpen(false)}
-              >
-                Testimonials
-              </Link>
-              <Link
-                href="/about"
-                className="text-sm font-medium text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 transition-colors"
-                onClick={() => setOpen(false)}
-              >
-                About
-              </Link>
-              <Link
-                href="/#contact"
-                className="text-sm font-medium text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 transition-colors"
-                onClick={() => setOpen(false)}
-              >
-                Contact
-              </Link>
-            </div>
-
-            <div className="mt-6 space-y-4">
-              {isAuthenticated ? (
-                <>
+          <nav className="px-4 py-2">
+            <ul className="divide-y divide-slate-200 dark:divide-slate-800">
+              {[
+                { href: "/#services", label: "Services" },
+                { href: "/#pricing", label: "Pricing" },
+                { href: "/#testimonials", label: "Testimonials" },
+                { href: "/about", label: "About" },
+                { href: "/#contact", label: "Contact" },
+              ].map((item) => (
+                <li key={item.href}>
                   <Link
-                    href="/dashboard"
-                    className="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800"
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="block w-full py-4 text-lg font-medium text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div className="px-4 py-4 space-y-3 mt-auto">
+            {isAuthenticated ? (
+              <>
+                <Link
+                  href="/dashboard"
+                  className="block w-full text-center px-4 py-4 rounded-md text-base font-semibold text-white bg-indigo-600 hover:bg-indigo-700"
+                  onClick={() => setOpen(false)}
+                >
+                  Go to Dashboard
+                </Link>
+                {isAdmin && (
+                  <Link
+                    href="/admin"
+                    className="block w-full text-center px-4 py-4 rounded-md text-base font-semibold border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800"
                     onClick={() => setOpen(false)}
                   >
-                    Go to Dashboard
-                    <ArrowRight className="ml-2 -mr-1 w-5 h-5" />
+                    Admin Panel
                   </Link>
-                  {isAdmin && (
-                    <Link
-                      href="/admin"
-                      className="w-full flex items-center justify-center px-4 py-3 border border-slate-200 dark:border-slate-700 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700"
-                      onClick={() => setOpen(false)}
-                    >
-                      Admin Panel
-                    </Link>
-                  )}
-                  <button
-                    onClick={() => {
-                      handleSignOut();
-                      setOpen(false);
-                    }}
-                    className="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-md text-base font-medium text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20"
-                  >
-                    <LogOut className="mr-2 h-5 w-5" />
-                    Sign out
-                  </button>
-                </>
-              ) : (
-                <>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setOpen(false);
-                      try {
-                        router.push("/login");
-                      } catch {
-                      } finally {
-                        if (typeof window !== "undefined")
-                          window.location.assign("/login");
-                      }
-                    }}
-                    className="w-full flex items-center justify-center px-4 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800"
-                  >
-                    Log in
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setOpen(false);
-                      try {
-                        router.push("/trial");
-                      } catch {
-                      } finally {
-                        if (typeof window !== "undefined")
-                          window.location.assign("/trial");
-                      }
-                    }}
-                    className="w-full flex items-center justify-center px-4 py-3 border border-slate-200 dark:border-slate-700 rounded-md text-base font-medium text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700"
-                  >
-                    Start Free Trial
-                  </button>
-                </>
-              )}
-            </div>
+                )}
+                <button
+                  onClick={() => {
+                    handleSignOut();
+                    setOpen(false);
+                  }}
+                  className="block w-full text-center px-4 py-4 rounded-md text-base font-semibold text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20"
+                >
+                  Sign out
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpen(false);
+                    try {
+                      router.push("/login");
+                    } catch {
+                    } finally {
+                      if (typeof window !== "undefined")
+                        window.location.assign("/login");
+                    }
+                  }}
+                  className="block w-full text-center px-4 py-4 rounded-md text-base font-semibold text-white bg-indigo-600 hover:bg-indigo-700"
+                >
+                  Log in
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpen(false);
+                    try {
+                      router.push("/trial");
+                    } catch {
+                    } finally {
+                      if (typeof window !== "undefined")
+                        window.location.assign("/trial");
+                    }
+                  }}
+                  className="block w-full text-center px-4 py-4 rounded-md text-base font-semibold border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800"
+                >
+                  Start Free Trial
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>
