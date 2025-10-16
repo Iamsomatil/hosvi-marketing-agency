@@ -24,7 +24,7 @@ const testimonials: Testimonial[] = [
     content:
       "Hosvi helped us increase new patient appointments by 200% in just 3 months. Their targeted approach to chiropractic marketing is unmatched.",
     rating: 5,
-    avatar: "/testimonial-1.png",
+    avatar: "/testimonial-1.png?v=2",
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const testimonials: Testimonial[] = [
     content:
       "For every dollar we spend with Hosvi, we see a 6x return in patient revenue. Their team understands the chiropractic industry inside out.",
     rating: 5,
-    avatar: "/testimonial-2.png",
+    avatar: "/testimonial-2.png?v=2",
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const testimonials: Testimonial[] = [
     content:
       "The detailed analytics help us understand which services patients are most interested in. We've optimized our practice based on real data.",
     rating: 5,
-    avatar: "/testimonial-3.png",
+    avatar: "/testimonial-3.png?v=2",
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ const testimonials: Testimonial[] = [
     content:
       "The 24/7 support is incredible. Whether it's adjusting ad copy or optimizing our landing pages, the Hosvi team is always available.",
     rating: 5,
-    avatar: "/testimonial-4.png",
+    avatar: "/testimonial-4.png?v=2",
   },
   {
     id: 5,
@@ -60,7 +60,7 @@ const testimonials: Testimonial[] = [
     content:
       "Our patient retention rates have never been higher. The automated follow-up system ensures our patients stay engaged and committed to their care plans.",
     rating: 5,
-    avatar: "/testimonial-5.png",
+    avatar: "/testimonial-5.png?v=2",
   },
   {
     id: 6,
@@ -69,7 +69,7 @@ const testimonials: Testimonial[] = [
     content:
       "The integration with our practice management system was seamless. We've reduced admin work by 30% while increasing patient satisfaction.",
     rating: 5,
-    avatar: "/testimonial-6.png",
+    avatar: "/testimonial-6.png?v=2",
   },
 ];
 

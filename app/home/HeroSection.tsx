@@ -11,7 +11,7 @@ import { SkeletonWrapper } from "@/components/ui/LoadingWrapper";
 const preloadImages = () => {
   if (typeof window !== "undefined") {
     const heroImage = new window.Image();
-    heroImage.src = "/hero-hosvi.png";
+    heroImage.src = "/hero-hosvi.png?v=2";
 
     const logoImage = new window.Image();
     logoImage.src = "/hosvi-logo.webp";
@@ -40,7 +40,7 @@ export function HeroSection() {
         <div className="absolute inset-0 overflow-hidden">
           {/* Hero background image */}
           <Image
-            src="/hero-hosvi.png"
+            src="/hero-hosvi.png?v=2"
             alt="Hosvi hero background"
             fill
             priority

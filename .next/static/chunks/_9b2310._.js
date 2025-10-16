@@ -368,7 +368,7 @@ var _s = __turbopack_refresh__.signature();
 const preloadImages = ()=>{
     if (typeof window !== "undefined") {
         const heroImage = new window.Image();
-        heroImage.src = "/hero-hosvi.png";
+        heroImage.src = "/hero-hosvi.png?v=2";
         const logoImage = new window.Image();
         logoImage.src = "/hosvi-logo.webp";
     }
@@ -395,7 +395,7 @@ function HeroSection() {
                     className: "absolute inset-0 overflow-hidden",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                            src: "/hero-hosvi.png",
+                            src: "/hero-hosvi.png?v=2",
                             alt: "Hosvi hero background",
                             fill: true,
                             priority: true,
@@ -1194,7 +1194,7 @@ const testimonials = [
         role: "Chiropractor, Back to Health Center",
         content: "Hosvi helped us increase new patient appointments by 200% in just 3 months. Their targeted approach to chiropractic marketing is unmatched.",
         rating: 5,
-        avatar: "/testimonial-1.png"
+        avatar: "/testimonial-1.png?v=2"
     },
     {
         id: 2,
@@ -1202,7 +1202,7 @@ const testimonials = [
         role: "Owner, Spine & Wellness Clinic",
         content: "For every dollar we spend with Hosvi, we see a 6x return in patient revenue. Their team understands the chiropractic industry inside out.",
         rating: 5,
-        avatar: "/testimonial-2.png"
+        avatar: "/testimonial-2.png?v=2"
     },
     {
         id: 3,
@@ -1210,7 +1210,7 @@ const testimonials = [
         role: "Sports Chiropractor, Peak Performance",
         content: "The detailed analytics help us understand which services patients are most interested in. We've optimized our practice based on real data.",
         rating: 5,
-        avatar: "/testimonial-3.png"
+        avatar: "/testimonial-3.png?v=2"
     },
     {
         id: 4,
@@ -1218,7 +1218,7 @@ const testimonials = [
         role: "Family Chiropractic Care",
         content: "The 24/7 support is incredible. Whether it's adjusting ad copy or optimizing our landing pages, the Hosvi team is always available.",
         rating: 5,
-        avatar: "/testimonial-4.png"
+        avatar: "/testimonial-4.png?v=2"
     },
     {
         id: 5,
@@ -1226,7 +1226,7 @@ const testimonials = [
         role: "Wellness Chiropractic Center",
         content: "Our patient retention rates have never been higher. The automated follow-up system ensures our patients stay engaged and committed to their care plans.",
         rating: 5,
-        avatar: "/testimonial-5.png"
+        avatar: "/testimonial-5.png?v=2"
     },
     {
         id: 6,
@@ -1234,7 +1234,7 @@ const testimonials = [
         role: "Advanced Spine & Rehab",
         content: "The integration with our practice management system was seamless. We've reduced admin work by 30% while increasing patient satisfaction.",
         rating: 5,
-        avatar: "/testimonial-6.png"
+        avatar: "/testimonial-6.png?v=2"
     }
 ];
 const clientLogos = [
