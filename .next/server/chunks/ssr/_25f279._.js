@@ -352,7 +352,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$LoadingW
 const preloadImages = ()=>{
     if (typeof window !== "undefined") {
         const heroImage = new window.Image();
-        heroImage.src = "/hero-hosvi.webp";
+        heroImage.src = "/hero-hosvi.png";
         const logoImage = new window.Image();
         logoImage.src = "/hosvi-logo.webp";
     }
@@ -378,8 +378,8 @@ function HeroSection() {
                     className: "absolute inset-0 overflow-hidden",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                            src: "/hero-hosvi.webp",
-                            alt: "Hosvi marketing results for healthcare practices",
+                            src: "/hero-hosvi.png",
+                            alt: "Hosvi hero background",
                             fill: true,
                             priority: true,
                             sizes: "100vw",
@@ -1160,7 +1160,7 @@ const testimonials = [
         role: "Chiropractor, Back to Health Center",
         content: "Hosvi helped us increase new patient appointments by 200% in just 3 months. Their targeted approach to chiropractic marketing is unmatched.",
         rating: 5,
-        avatar: "/placeholder-avatar.jpg"
+        avatar: "/testimonial-1.png"
     },
     {
         id: 2,
@@ -1168,7 +1168,7 @@ const testimonials = [
         role: "Owner, Spine & Wellness Clinic",
         content: "For every dollar we spend with Hosvi, we see a 6x return in patient revenue. Their team understands the chiropractic industry inside out.",
         rating: 5,
-        avatar: "/placeholder-avatar.jpg"
+        avatar: "/testimonial-2.png"
     },
     {
         id: 3,
@@ -1176,7 +1176,7 @@ const testimonials = [
         role: "Sports Chiropractor, Peak Performance",
         content: "The detailed analytics help us understand which services patients are most interested in. We've optimized our practice based on real data.",
         rating: 5,
-        avatar: "/placeholder-avatar.jpg"
+        avatar: "/testimonial-3.png"
     },
     {
         id: 4,
@@ -1184,7 +1184,7 @@ const testimonials = [
         role: "Family Chiropractic Care",
         content: "The 24/7 support is incredible. Whether it's adjusting ad copy or optimizing our landing pages, the Hosvi team is always available.",
         rating: 5,
-        avatar: "/placeholder-avatar.jpg"
+        avatar: "/testimonial-4.png"
     },
     {
         id: 5,
@@ -1192,7 +1192,7 @@ const testimonials = [
         role: "Wellness Chiropractic Center",
         content: "Our patient retention rates have never been higher. The automated follow-up system ensures our patients stay engaged and committed to their care plans.",
         rating: 5,
-        avatar: "/placeholder-avatar.jpg"
+        avatar: "/testimonial-5.png"
     },
     {
         id: 6,
@@ -1200,7 +1200,7 @@ const testimonials = [
         role: "Advanced Spine & Rehab",
         content: "The integration with our practice management system was seamless. We've reduced admin work by 30% while increasing patient satisfaction.",
         rating: 5,
-        avatar: "/placeholder-avatar.jpg"
+        avatar: "/testimonial-6.png"
     }
 ];
 const clientLogos = [
@@ -1356,13 +1356,11 @@ function TestimonialsSection() {
                                                 className: "w-12 h-12 rounded-full bg-slate-200 mr-4 overflow-hidden relative",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                                     src: testimonial.avatar,
-                                                    alt: testimonial.name,
-                                                    fill: true,
-                                                    className: "object-cover",
-                                                    onError: (e)=>{
-                                                        const target = e.target;
-                                                        target.src = "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiA2NDY0NmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjAgMjF2LTJhNCA0IDAgMCAwLTQtNEg4YTQgNCAwIDAgMC00IDR2MiI+PC9wYXRoPjxjaXJjbGUgY3g9IjEyIiBjeT0iNyIgcj0iNCI+PC9jaXJjbGU+PC9zdmc+";
-                                                    }
+                                                    alt: `${testimonial.name} headshot`,
+                                                    width: 48,
+                                                    height: 48,
+                                                    className: "object-cover rounded-full",
+                                                    loading: "lazy"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/home/TestimonialsSection.tsx",
                                                     lineNumber: 161,
@@ -1380,7 +1378,7 @@ function TestimonialsSection() {
                                                         children: testimonial.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                                        lineNumber: 174,
+                                                        lineNumber: 171,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1388,13 +1386,13 @@ function TestimonialsSection() {
                                                         children: testimonial.role
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                                        lineNumber: 177,
+                                                        lineNumber: 174,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                                lineNumber: 173,
+                                                lineNumber: 170,
                                                 columnNumber: 19
                                             }, this)
                                         ]
@@ -1440,7 +1438,7 @@ function TestimonialsSection() {
                                         children: "Ready to grow your chiropractic practice?"
                                     }, void 0, false, {
                                         fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                        lineNumber: 192,
+                                        lineNumber: 189,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1448,13 +1446,13 @@ function TestimonialsSection() {
                                         children: "Join hundreds of chiropractic professionals who trust Hosvi for their practice growth."
                                     }, void 0, false, {
                                         fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                        lineNumber: 195,
+                                        lineNumber: 192,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                lineNumber: 191,
+                                lineNumber: 188,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1480,18 +1478,18 @@ function TestimonialsSection() {
                                                     className: "ml-2 w-4 h-4 sm:w-5 sm:h-5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                                    lineNumber: 219,
+                                                    lineNumber: 216,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                                lineNumber: 209,
+                                                lineNumber: 206,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                        lineNumber: 202,
+                                        lineNumber: 199,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1500,19 +1498,19 @@ function TestimonialsSection() {
                                         children: "Contact Us"
                                     }, void 0, false, {
                                         fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                        lineNumber: 222,
+                                        lineNumber: 219,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                lineNumber: 201,
+                                lineNumber: 198,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/home/TestimonialsSection.tsx",
-                        lineNumber: 184,
+                        lineNumber: 181,
                         columnNumber: 11
                     }, this)
                 ]

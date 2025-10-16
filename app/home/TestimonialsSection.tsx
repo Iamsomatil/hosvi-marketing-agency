@@ -24,7 +24,7 @@ const testimonials: Testimonial[] = [
     content:
       "Hosvi helped us increase new patient appointments by 200% in just 3 months. Their targeted approach to chiropractic marketing is unmatched.",
     rating: 5,
-    avatar: "/placeholder-avatar.jpg",
+    avatar: "/testimonial-1.png",
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ const testimonials: Testimonial[] = [
     content:
       "For every dollar we spend with Hosvi, we see a 6x return in patient revenue. Their team understands the chiropractic industry inside out.",
     rating: 5,
-    avatar: "/placeholder-avatar.jpg",
+    avatar: "/testimonial-2.png",
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const testimonials: Testimonial[] = [
     content:
       "The detailed analytics help us understand which services patients are most interested in. We've optimized our practice based on real data.",
     rating: 5,
-    avatar: "/placeholder-avatar.jpg",
+    avatar: "/testimonial-3.png",
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ const testimonials: Testimonial[] = [
     content:
       "The 24/7 support is incredible. Whether it's adjusting ad copy or optimizing our landing pages, the Hosvi team is always available.",
     rating: 5,
-    avatar: "/placeholder-avatar.jpg",
+    avatar: "/testimonial-4.png",
   },
   {
     id: 5,
@@ -60,7 +60,7 @@ const testimonials: Testimonial[] = [
     content:
       "Our patient retention rates have never been higher. The automated follow-up system ensures our patients stay engaged and committed to their care plans.",
     rating: 5,
-    avatar: "/placeholder-avatar.jpg",
+    avatar: "/testimonial-5.png",
   },
   {
     id: 6,
@@ -69,7 +69,7 @@ const testimonials: Testimonial[] = [
     content:
       "The integration with our practice management system was seamless. We've reduced admin work by 30% while increasing patient satisfaction.",
     rating: 5,
-    avatar: "/placeholder-avatar.jpg",
+    avatar: "/testimonial-6.png",
   },
 ];
 
@@ -160,14 +160,11 @@ export function TestimonialsSection() {
                   <div className="w-12 h-12 rounded-full bg-slate-200 mr-4 overflow-hidden relative">
                     <Image
                       src={testimonial.avatar}
-                      alt={testimonial.name}
-                      fill
-                      className="object-cover"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src =
-                          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiA2NDY0NmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMjAgMjF2LTJhNCA0IDAgMCAwLTQtNEg4YTQgNCAwIDAgMC00IDR2MiI+PC9wYXRoPjxjaXJjbGUgY3g9IjEyIiBjeT0iNyIgcj0iNCI+PC9jaXJjbGU+PC9zdmc+";
-                      }}
+                      alt={`${testimonial.name} headshot`}
+                      width={48}
+                      height={48}
+                      className="object-cover rounded-full"
+                      loading="lazy"
                     />
                   </div>
                   <div>
