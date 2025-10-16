@@ -47,6 +47,7 @@ export function HeroSection() {
             sizes="100vw"
             className="object-cover"
             quality={70}
+            unoptimized
           />
           {/* Subtle pattern overlay */}
           <div className="absolute inset-0 opacity-5">

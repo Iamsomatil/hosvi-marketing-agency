@@ -384,7 +384,8 @@ function HeroSection() {
                             priority: true,
                             sizes: "100vw",
                             className: "object-cover",
-                            quality: 70
+                            quality: 70,
+                            unoptimized: true
                         }, void 0, false, {
                             fileName: "[project]/app/home/HeroSection.tsx",
                             lineNumber: 42,
@@ -402,19 +403,19 @@ function HeroSection() {
                                 quality: 30
                             }, void 0, false, {
                                 fileName: "[project]/app/home/HeroSection.tsx",
-                                lineNumber: 53,
+                                lineNumber: 54,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/home/HeroSection.tsx",
-                            lineNumber: 52,
+                            lineNumber: 53,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "absolute inset-0 bg-gradient-to-b from-transparent to-blue-950/50"
                         }, void 0, false, {
                             fileName: "[project]/app/home/HeroSection.tsx",
-                            lineNumber: 64,
+                            lineNumber: 65,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -439,7 +440,7 @@ function HeroSection() {
                             }
                         }, void 0, false, {
                             fileName: "[project]/app/home/HeroSection.tsx",
-                            lineNumber: 67,
+                            lineNumber: 68,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -465,7 +466,7 @@ function HeroSection() {
                             }
                         }, void 0, false, {
                             fileName: "[project]/app/home/HeroSection.tsx",
-                            lineNumber: 80,
+                            lineNumber: 81,
                             columnNumber: 11
                         }, this)
                     ]
@@ -499,14 +500,14 @@ function HeroSection() {
                                             className: "w-4 h-4 mr-2 fill-yellow-400 text-yellow-400"
                                         }, void 0, false, {
                                             fileName: "[project]/app/home/HeroSection.tsx",
-                                            lineNumber: 105,
+                                            lineNumber: 106,
                                             columnNumber: 17
                                         }, this),
                                         "Trusted by 500+ chiropractic practices"
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/home/HeroSection.tsx",
-                                    lineNumber: 99,
+                                    lineNumber: 100,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].h1, {
@@ -531,13 +532,13 @@ function HeroSection() {
                                             children: "More Patients"
                                         }, void 0, false, {
                                             fileName: "[project]/app/home/HeroSection.tsx",
-                                            lineNumber: 116,
+                                            lineNumber: 117,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/home/HeroSection.tsx",
-                                    lineNumber: 109,
+                                    lineNumber: 110,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].p, {
@@ -557,7 +558,7 @@ function HeroSection() {
                                     children: "Our proven marketing strategies help chiropractors attract more patients and grow their practice with a 30-day free trial, no credit card required. Specializing in spinal health, pain management, and wellness care."
                                 }, void 0, false, {
                                     fileName: "[project]/app/home/HeroSection.tsx",
-                                    lineNumber: 119,
+                                    lineNumber: 120,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -584,13 +585,13 @@ function HeroSection() {
                                                     className: "ml-2 -mr-1 w-5 h-5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/home/HeroSection.tsx",
-                                                    lineNumber: 142,
+                                                    lineNumber: 143,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/home/HeroSection.tsx",
-                                            lineNumber: 137,
+                                            lineNumber: 138,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -599,29 +600,29 @@ function HeroSection() {
                                             children: "View Pricing"
                                         }, void 0, false, {
                                             fileName: "[project]/app/home/HeroSection.tsx",
-                                            lineNumber: 144,
+                                            lineNumber: 145,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/home/HeroSection.tsx",
-                                    lineNumber: 131,
+                                    lineNumber: 132,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/home/HeroSection.tsx",
-                            lineNumber: 98,
+                            lineNumber: 99,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/home/HeroSection.tsx",
-                        lineNumber: 97,
+                        lineNumber: 98,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/home/HeroSection.tsx",
-                    lineNumber: 96,
+                    lineNumber: 97,
                     columnNumber: 9
                 }, this)
             ]
@@ -1360,7 +1361,8 @@ function TestimonialsSection() {
                                                     width: 48,
                                                     height: 48,
                                                     className: "object-cover rounded-full",
-                                                    loading: "lazy"
+                                                    loading: "lazy",
+                                                    unoptimized: true
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/home/TestimonialsSection.tsx",
                                                     lineNumber: 161,
@@ -1378,7 +1380,7 @@ function TestimonialsSection() {
                                                         children: testimonial.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                                        lineNumber: 171,
+                                                        lineNumber: 172,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1386,13 +1388,13 @@ function TestimonialsSection() {
                                                         children: testimonial.role
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                                        lineNumber: 174,
+                                                        lineNumber: 175,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                                lineNumber: 170,
+                                                lineNumber: 171,
                                                 columnNumber: 19
                                             }, this)
                                         ]
@@ -1438,7 +1440,7 @@ function TestimonialsSection() {
                                         children: "Ready to grow your chiropractic practice?"
                                     }, void 0, false, {
                                         fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                        lineNumber: 189,
+                                        lineNumber: 190,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1446,13 +1448,13 @@ function TestimonialsSection() {
                                         children: "Join hundreds of chiropractic professionals who trust Hosvi for their practice growth."
                                     }, void 0, false, {
                                         fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                        lineNumber: 192,
+                                        lineNumber: 193,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                lineNumber: 188,
+                                lineNumber: 189,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1478,18 +1480,18 @@ function TestimonialsSection() {
                                                     className: "ml-2 w-4 h-4 sm:w-5 sm:h-5"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                                    lineNumber: 216,
+                                                    lineNumber: 217,
                                                     columnNumber: 19
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                                lineNumber: 206,
+                                                lineNumber: 207,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                        lineNumber: 199,
+                                        lineNumber: 200,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1498,19 +1500,19 @@ function TestimonialsSection() {
                                         children: "Contact Us"
                                     }, void 0, false, {
                                         fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                        lineNumber: 219,
+                                        lineNumber: 220,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/home/TestimonialsSection.tsx",
-                                lineNumber: 198,
+                                lineNumber: 199,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/home/TestimonialsSection.tsx",
-                        lineNumber: 181,
+                        lineNumber: 182,
                         columnNumber: 11
                     }, this)
                 ]

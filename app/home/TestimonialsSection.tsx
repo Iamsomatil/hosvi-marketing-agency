@@ -165,6 +165,7 @@ export function TestimonialsSection() {
                       height={48}
                       className="object-cover rounded-full"
                       loading="lazy"
+                      unoptimized
                     />
                   </div>
                   <div>
