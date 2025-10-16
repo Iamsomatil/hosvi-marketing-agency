@@ -246,7 +246,7 @@ export default function NavBar() {
             <div className="px-4 py-4 flex items-center justify-between">
               <div className="flex items-center">
                 <Image
-                  src="/hosvi-logo.jpg"
+                  src="/hosvi-logo.webp"
                   alt="Hosvi logo"
                   width={120}
                   height={40}
