@@ -16,7 +16,7 @@ function getStripe() {
         throw new Error("STRIPE_SECRET_KEY is not set");
     }
     return new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$stripe$2f$esm$2f$stripe$2e$esm$2e$node$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"](key, {
-        apiVersion: "2024-06-20"
+        apiVersion: "2024-04-10"
     });
 }
 const STRIPE_PRICES = {
@@ -254,7 +254,6 @@ async function POST(req) {
             ],
             allow_promotion_codes: true,
             subscription_data: {
-                trial_from_plan: true,
                 metadata: {
                     orgId: resolvedOrgId ?? "",
                     userId: userId ?? "",

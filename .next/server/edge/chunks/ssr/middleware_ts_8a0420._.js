@@ -15,11 +15,17 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$auth
 ;
 async function middleware(request) {
     const { pathname } = request.nextUrl;
+    // Allow static assets & special files to bypass auth
+    const isStaticAsset = /\.(?:png|jpg|jpeg|webp|svg|gif|ico|txt|json|xml|csv|woff2?|ttf|eot|mp4|webm)$/i.test(pathname);
+    const isSpecial = pathname === "/robots.txt" || pathname === "/sitemap.xml" || pathname === "/favicon.ico";
+    if (isStaticAsset || isSpecial) {
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$response$2e$js__$5b$middleware$5d$__$28$ecmascript$29$__["NextResponse"].next();
+    }
     const token = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$auth$2f$jwt$2f$index$2e$js__$5b$middleware$5d$__$28$ecmascript$29$__["getToken"])({
         req: request
     });
-    console.log('Middleware - Path:', pathname);
-    console.log('Middleware - Token:', {
+    console.log("Middleware - Path:", pathname);
+    console.log("Middleware - Token:", {
         hasToken: !!token,
         userId: token?.sub,
         userRole: token?.role,
@@ -28,52 +34,53 @@ async function middleware(request) {
     // Public routes that don't require authentication
     // Note: handle root '/' explicitly; do NOT include '/' in startsWith array
     const publicPaths = [
-        '/login',
-        '/register',
-        '/api/auth',
-        '/api/stripe',
-        '/api/trial',
-        '/about',
-        '/trial',
-        '/legal',
-        '/success',
-        '/cancel',
-        '/terms',
-        '/privacy',
-        '/admin/login'
+        "/login",
+        "/register",
+        "/api/auth",
+        "/api/stripe",
+        "/api/trial",
+        "/about",
+        "/trial",
+        "/legal",
+        "/success",
+        "/cancel",
+        "/terms",
+        "/privacy",
+        "/admin/login"
     ];
-    const isPublicPath = pathname === '/' || publicPaths.some((path)=>pathname.startsWith(path));
+    const isPublicPath = pathname === "/" || publicPaths.some((path)=>pathname.startsWith(path));
     if (isPublicPath) {
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$response$2e$js__$5b$middleware$5d$__$28$ecmascript$29$__["NextResponse"].next();
     }
     // If no token and not a public path, redirect to login
     if (!token) {
-        console.log('No token found, redirecting to login');
-        const loginUrl = new URL('/login', request.url);
-        loginUrl.searchParams.set('callbackUrl', pathname);
+        console.log("No token found, redirecting to login");
+        const loginUrl = new URL("/login", request.url);
+        loginUrl.searchParams.set("callbackUrl", pathname);
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$response$2e$js__$5b$middleware$5d$__$28$ecmascript$29$__["NextResponse"].redirect(loginUrl);
     }
     // Handle admin routes
-    const isAdminPath = pathname.startsWith('/admin');
-    const isAdmin = token.role === 'ADMIN';
+    const isAdminPath = pathname.startsWith("/admin");
+    const isAdmin = token.role === "ADMIN";
     if (isAdminPath && !isAdmin) {
-        console.log('Non-admin user trying to access admin area, redirecting to dashboard');
-        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$response$2e$js__$5b$middleware$5d$__$28$ecmascript$29$__["NextResponse"].redirect(new URL('/dashboard', request.url));
+        console.log("Non-admin user trying to access admin area, redirecting to dashboard");
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$response$2e$js__$5b$middleware$5d$__$28$ecmascript$29$__["NextResponse"].redirect(new URL("/dashboard", request.url));
     }
     // Handle dashboard routes
-    const isDashboardPath = pathname.startsWith('/dashboard');
-    const isClient = token.role === 'CLIENT' || !token.role; // Default to client if no role
+    const isDashboardPath = pathname.startsWith("/dashboard");
+    const isClient = token.role === "CLIENT" || !token.role; // Default to client if no role
     if (isDashboardPath && !isClient) {
-        console.log('Non-client user trying to access dashboard, checking role...');
+        console.log("Non-client user trying to access dashboard, checking role...");
         if (isAdmin) {
-            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$response$2e$js__$5b$middleware$5d$__$28$ecmascript$29$__["NextResponse"].redirect(new URL('/admin', request.url));
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$response$2e$js__$5b$middleware$5d$__$28$ecmascript$29$__["NextResponse"].redirect(new URL("/admin", request.url));
         }
     }
     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$esm$2f$server$2f$web$2f$spec$2d$extension$2f$response$2e$js__$5b$middleware$5d$__$28$ecmascript$29$__["NextResponse"].next();
 }
 const config = {
     matcher: [
-        '/((?!_next/static|_next/image|favicon.ico).*)'
+        // Exclude Next internals and any path containing a dot (treat as asset)
+        "/((?!_next/static|_next/image|favicon.ico|.*..*).*)"
     ]
 };
 
