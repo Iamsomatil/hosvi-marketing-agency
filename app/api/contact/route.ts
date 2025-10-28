@@ -56,7 +56,7 @@ export async function POST(request: Request) {
         <p>We've received your message and one of our team members will get back to you within 24 hours.</p>
         <p><strong>Your message:</strong></p>
         <p>${message}</p>
-        <p>If you have any urgent questions, feel free to call us at (888) 555-1234.</p>
+        <p>If you have any urgent questions, feel free to call us at (754) 207-0982.</p>
         <p>Best regards,<br/>The Hosvi Team</p>
       `,
     });
