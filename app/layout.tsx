@@ -10,9 +10,8 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Hosvi - Get More Clients with Our 30-Day Free Trial",
   description:
-    "Complete lead generation system for chiropractors and med spas in Florida. Outbound email, CRM tracking, booking pages, and more.",
-  keywords:
-    "chiropractic marketing, med spa marketing, lead generation, Florida",
+    "Complete lead generation system for chiropractors in Florida. Outbound email, CRM tracking, booking pages, and more.",
+  keywords: "chiropractic marketing, lead generation, Florida",
 };
 
 export default function RootLayout({

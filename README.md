@@ -1,6 +1,6 @@
 # Hosvi - Marketing Site & Client Portal
 
-A modern, gradient-driven marketing site and secure client portal for lead generation services targeting chiropractors and med spas in Florida.
+A modern, gradient-driven marketing site and secure client portal for lead generation services targeting chiropractors in Florida.
 
 ## Features
 

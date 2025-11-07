@@ -40,10 +40,11 @@ const features = [
   "Outbound Email Campaign",
   "CRM & Pipeline Tracking",
   "Professional Booking Pages",
-  "Google Business Profile Setup",
   "LinkedIn Setup",
   "Email Support",
   "SMS Follow-up Campaign",
+  // Premium-only features start here
+  "Google Business Profile Setup",
   "Paid Ads Management",
   "Advanced Analytics",
   "Priority Phone Support",

@@ -126,7 +126,7 @@ async function createDemoData(orgId: string) {
     },
     {
       name: "Dr. Lisa Rodriguez",
-      clinic: "Sunshine Med Spa",
+      clinic: "Sunshine Chiropractic",
       city: "Orlando",
       source: "Email Campaign",
       status: "CLOSED",
@@ -140,7 +140,7 @@ async function createDemoData(orgId: string) {
     },
     {
       name: "Dr. Emily Davis",
-      clinic: "Rejuvenate Med Spa",
+      clinic: "Rejuvenate Chiropractic",
       city: "Fort Lauderdale",
       source: "Email Campaign",
       status: "SHOWED",
@@ -173,7 +173,7 @@ async function createDemoData(orgId: string) {
       replyRate: 5.3,
     },
     {
-      name: "Med Spa Holiday Promo",
+      name: "New Patient Holiday Promo",
       channel: "email",
       sends: 200,
       opens: 72,

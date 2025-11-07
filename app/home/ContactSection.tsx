@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 export function ContactSection() {
+  // TODO: Replace with exact business coordinates and document the source of truth.
+  const HOSVI_LOCATION = { lat: 27.9999, lng: -82.465 }; // placeholder
+  const DEFAULT_ZOOM = 15; // street-level
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -283,13 +286,15 @@ export function ContactSection() {
             </div>
 
             <div className="pt-4">
-              <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-slate-100">
-                {/* Replace with your actual Google Maps embed or component */}
-                <div className="w-full h-64 flex items-center justify-center text-slate-400">
-                  <div className="text-center">
-                    <MapPin className="mx-auto h-8 w-8 mb-2" />
-                    <p>Map View</p>
-                  </div>
+              <div className="relative w-full overflow-hidden rounded-xl">
+                <div className="w-full aspect-video bg-slate-100">
+                  <iframe
+                    title="Hosvi Location Map"
+                    className="w-full h-full border-0"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src={`https://www.google.com/maps?q=${HOSVI_LOCATION.lat},${HOSVI_LOCATION.lng}&z=${DEFAULT_ZOOM}&output=embed`}
+                  />
                 </div>
               </div>
             </div>

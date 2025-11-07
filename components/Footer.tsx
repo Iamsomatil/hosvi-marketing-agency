@@ -15,9 +15,8 @@ export default function Footer() {
             <div className="flex items-center space-x-2">
               <span className="text-2xl font-bold text-white">Hosvi</span>
             </div>
-            <p className="text-slate-300 text-sm">
-              Complete lead generation system for chiropractors and med spas in
-              Florida.
+            <p className="text-slate-300 text-sm max-w-3xl">
+              We connect chiropractors and med spas with clients who are ready to book. Hosvi combines targeted outbound campaigns, conversion-first landing experiences, and a streamlined CRM to turn interest into appointments.
             </p>
             <div className="flex space-x-4">
               <a
@@ -130,14 +129,14 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
               Contact Us
             </h3>
-            <address className="mt-4 not-italic text-slate-300 text-sm space-y-2">
+            <address className="mt-4 not-italic text-white/90 text-sm space-y-2">
               <p>123 Business Ave</p>
               <p>Orlando, FL 32801</p>
               <p>
                 Email:{" "}
                 <a
                   href="mailto:info@hosvi.com"
-                  className="text-indigo-400 hover:text-indigo-300"
+                  className="text-white underline hover:opacity-90"
                 >
                   info@hosvi.com
                 </a>
@@ -146,7 +145,7 @@ export default function Footer() {
                 Phone:{" "}
                 <a
                   href="tel:+17542070982"
-                  className="text-indigo-400 hover:text-indigo-300"
+                  className="text-white underline hover:opacity-90"
                 >
                   (754) 207-0982
                 </a>

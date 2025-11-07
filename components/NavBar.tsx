@@ -82,9 +82,6 @@ export default function NavBar() {
                 className="h-10 w-10 rounded-full"
                 priority
               />
-              <span className="ml-3 text-xl font-bold text-slate-900 dark:text-white">
-                Hosvi
-              </span>
             </Link>
           </div>
           <div className="hidden md:ml-10 md:flex md:space-x-8">

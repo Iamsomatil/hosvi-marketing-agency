@@ -881,6 +881,10 @@ p {
   display: none;
 }
 
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
 .h-10 {
   height: 2.5rem;
 }
@@ -1335,6 +1339,10 @@ p {
 
 .border-2 {
   border-width: 2px;
+}
+
+.border-0 {
+  border-width: 0;
 }
 
 .border-b {
@@ -2097,6 +2105,10 @@ p {
   color: rgb(250 204 21 / var(--tw-text-opacity, 1));
 }
 
+.text-white\/90 {
+  color: #ffffffe6;
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -2464,6 +2476,10 @@ p {
 
 .hover\:opacity-100:hover {
   opacity: 1;
+}
+
+.hover\:opacity-90:hover {
+  opacity: .9;
 }
 
 .hover\:shadow-lg:hover {

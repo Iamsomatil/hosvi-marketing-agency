@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About Hosvi | Marketing for Chiropractors & Med Spas",
+  title: "About Hosvi | Marketing for Chiropractors",
   description:
-    "Hosvi is a performance-driven marketing agency connecting chiropractors and med spas with qualified clients through outbound, CRM automation, and booked appointments.",
+    "Hosvi is a performance-driven marketing agency connecting chiropractors with qualified clients through outbound, CRM automation, and booked appointments.",
 };
 
 export default function AboutPage() {
@@ -18,10 +18,9 @@ export default function AboutPage() {
               About Hosvi
             </h1>
             <p className="mt-4 text-lg leading-8 text-slate-700 dark:text-slate-300">
-              We connect chiropractors and med spas with clients who are ready to
-              book. Hosvi combines targeted outbound campaigns, conversion-first
-              landing experiences, and a streamlined CRM to turn interest into
-              appointments.
+              We connect chiropractors with clients who are ready to book. Hosvi
+              combines targeted outbound campaigns, conversion-first landing experiences,
+              and a streamlined CRM to turn interest into appointments.
             </p>
           </div>
         </div>
@@ -33,14 +32,13 @@ export default function AboutPage() {
           <div>
             <h2 className="text-2xl font-bold">Who we serve</h2>
             <p className="mt-4 text-slate-700 dark:text-slate-300">
-              Our focus is on growth-minded chiropractors and med spa owners who
-              want predictable client acquisition without the headache. We help
-              you consistently fill your calendar with qualified appointments,
-              not "leads" you have to chase.
+              Our focus is on growth-minded chiropractors who want predictable
+              client acquisition without the headache. We help you consistently
+              fill your calendar with qualified appointments, not "leads" you have to chase.
             </p>
             <ul className="mt-6 space-y-2 text-slate-700 dark:text-slate-300 list-disc pl-5">
               <li>Chiropractic clinics aiming to grow new patient starts</li>
-              <li>Med spas scaling memberships and high-ticket services</li>
+              <li>Multi-location chiropractic practices improving patient flow</li>
               <li>Practices that value data, speed, and client experience</li>
             </ul>
           </div>
