@@ -1337,12 +1337,12 @@ p {
   border-width: 1px;
 }
 
-.border-2 {
-  border-width: 2px;
-}
-
 .border-0 {
   border-width: 0;
+}
+
+.border-2 {
+  border-width: 2px;
 }
 
 .border-b {
@@ -2105,8 +2105,9 @@ p {
   color: rgb(250 204 21 / var(--tw-text-opacity, 1));
 }
 
-.text-white\/90 {
-  color: #ffffffe6;
+.\!text-white {
+  --tw-text-opacity: 1 !important;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1)) !important;
 }
 
 .underline {
@@ -2433,11 +2434,6 @@ p {
 .hover\:text-blue-700:hover {
   --tw-text-opacity: 1;
   color: rgb(29 78 216 / var(--tw-text-opacity, 1));
-}
-
-.hover\:text-indigo-300:hover {
-  --tw-text-opacity: 1;
-  color: rgb(165 180 252 / var(--tw-text-opacity, 1));
 }
 
 .hover\:text-indigo-500:hover {

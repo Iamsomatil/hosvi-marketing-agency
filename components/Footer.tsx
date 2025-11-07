@@ -16,7 +16,7 @@ export default function Footer() {
               <span className="text-2xl font-bold text-white">Hosvi</span>
             </div>
             <p className="text-slate-300 text-sm max-w-3xl">
-              We connect chiropractors and med spas with clients who are ready to book. Hosvi combines targeted outbound campaigns, conversion-first landing experiences, and a streamlined CRM to turn interest into appointments.
+              We connect chiropractors with clients who are ready to book. Hosvi combines targeted outbound campaigns, conversion-first landing experiences, and a streamlined CRM to turn interest into appointments.
             </p>
             <div className="flex space-x-4">
               <a
@@ -125,15 +125,15 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="text-white">
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
               Contact Us
             </h3>
-            <address className="mt-4 not-italic text-white/90 text-sm space-y-2">
-              <p>123 Business Ave</p>
-              <p>Orlando, FL 32801</p>
-              <p>
-                Email:{" "}
+            <address className="mt-4 not-italic text-white text-sm space-y-2">
+              <p className="!text-white">6421 N. Florida Ave<br/>Suite D-1130</p>
+              <p className="!text-white">Tampa, FL 33604</p>
+              <p className="!text-white">
+                <span className="!text-white">Email:</span>{" "}
                 <a
                   href="mailto:info@hosvi.com"
                   className="text-white underline hover:opacity-90"
@@ -141,8 +141,8 @@ export default function Footer() {
                   info@hosvi.com
                 </a>
               </p>
-              <p>
-                Phone:{" "}
+              <p className="!text-white">
+                <span className="!text-white">Phone:</span>{" "}
                 <a
                   href="tel:+17542070982"
                   className="text-white underline hover:opacity-90"

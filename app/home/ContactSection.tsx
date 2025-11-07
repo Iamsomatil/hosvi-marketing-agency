@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 export function ContactSection() {
-  // TODO: Replace with exact business coordinates and document the source of truth.
-  const HOSVI_LOCATION = { lat: 27.9999, lng: -82.465 }; // placeholder
+  // TODO: Coordinates source: Google Maps place for "6421 N. Florida Ave, Suite D-1130, Tampa, FL 33604".
+  const HOSVI_LOCATION = { lat: 27.998344, lng: -82.459747 };
   const DEFAULT_ZOOM = 15; // street-level
   const [formData, setFormData] = useState({
     name: "",
@@ -275,24 +275,22 @@ export function ContactSection() {
                     Visit us
                   </h4>
                   <p className="text-slate-600">
-                    6421 N. FLORIDA AVE
-                    <br />
-                    SUITE D-1130
-                    <br />
-                    TAMPA, FL 33604
+                    6421 N. Florida Ave, Suite D-1130, Tampa, FL 33604
                   </p>
                 </div>
               </div>
             </div>
 
             <div className="pt-4">
-              <div className="relative w-full overflow-hidden rounded-xl">
+              <div className="relative w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm">
                 <div className="w-full aspect-video bg-slate-100">
                   <iframe
-                    title="Hosvi Location Map"
-                    className="w-full h-full border-0"
+                    title="Hosvi Map — 6421 N. Florida Ave, Suite D-1130, Tampa, FL 33604"
+                    aria-label="Map showing Hosvi Tampa office location at 6421 N. Florida Ave, Suite D-1130, Tampa, FL 33604"
+                    className="block w-full h-full border-0"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
                     src={`https://www.google.com/maps?q=${HOSVI_LOCATION.lat},${HOSVI_LOCATION.lng}&z=${DEFAULT_ZOOM}&output=embed`}
                   />
                 </div>

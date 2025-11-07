@@ -2011,11 +2011,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 ;
 ;
 function ContactSection() {
-    // TODO: Replace with exact business coordinates and document the source of truth.
+    // TODO: Coordinates source: Google Maps place for "6421 N. Florida Ave, Suite D-1130, Tampa, FL 33604".
     const HOSVI_LOCATION = {
-        lat: 27.9999,
-        lng: -82.465
-    }; // placeholder
+        lat: 27.998344,
+        lng: -82.459747
+    };
     const DEFAULT_ZOOM = 15; // street-level
     const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
         name: "",
@@ -2485,22 +2485,8 @@ function ContactSection() {
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                             className: "text-slate-600",
-                                                            children: [
-                                                                "6421 N. FLORIDA AVE",
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
-                                                                    fileName: "[project]/app/home/ContactSection.tsx",
-                                                                    lineNumber: 279,
-                                                                    columnNumber: 21
-                                                                }, this),
-                                                                "SUITE D-1130",
-                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
-                                                                    fileName: "[project]/app/home/ContactSection.tsx",
-                                                                    lineNumber: 281,
-                                                                    columnNumber: 21
-                                                                }, this),
-                                                                "TAMPA, FL 33604"
-                                                            ]
-                                                        }, void 0, true, {
+                                                            children: "6421 N. Florida Ave, Suite D-1130, Tampa, FL 33604"
+                                                        }, void 0, false, {
                                                             fileName: "[project]/app/home/ContactSection.tsx",
                                                             lineNumber: 277,
                                                             columnNumber: 19
@@ -2526,33 +2512,35 @@ function ContactSection() {
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "pt-4",
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "relative w-full overflow-hidden rounded-xl",
+                                        className: "relative w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm",
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "w-full aspect-video bg-slate-100",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$future$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("iframe", {
-                                                title: "Hosvi Location Map",
-                                                className: "w-full h-full border-0",
+                                                title: "Hosvi Map — 6421 N. Florida Ave, Suite D-1130, Tampa, FL 33604",
+                                                "aria-label": "Map showing Hosvi Tampa office location at 6421 N. Florida Ave, Suite D-1130, Tampa, FL 33604",
+                                                className: "block w-full h-full border-0",
                                                 loading: "lazy",
                                                 referrerPolicy: "no-referrer-when-downgrade",
+                                                allowFullScreen: true,
                                                 src: `https://www.google.com/maps?q=${HOSVI_LOCATION.lat},${HOSVI_LOCATION.lng}&z=${DEFAULT_ZOOM}&output=embed`
                                             }, void 0, false, {
                                                 fileName: "[project]/app/home/ContactSection.tsx",
-                                                lineNumber: 291,
+                                                lineNumber: 287,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/home/ContactSection.tsx",
-                                            lineNumber: 290,
+                                            lineNumber: 286,
                                             columnNumber: 17
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/home/ContactSection.tsx",
-                                        lineNumber: 289,
+                                        lineNumber: 285,
                                         columnNumber: 15
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/home/ContactSection.tsx",
-                                    lineNumber: 288,
+                                    lineNumber: 284,
                                     columnNumber: 13
                                 }, this)
                             ]
