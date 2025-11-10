@@ -136,7 +136,7 @@ export default function Footer() {
                 <span className="!text-white">Email:</span>{" "}
                 <a
                   href="mailto:info@hosvi.com"
-                  className="text-white underline hover:opacity-90"
+                  className="text-white hover:opacity-90"
                 >
                   info@hosvi.com
                 </a>
@@ -145,7 +145,7 @@ export default function Footer() {
                 <span className="!text-white">Phone:</span>{" "}
                 <a
                   href="tel:+17542070982"
-                  className="text-white underline hover:opacity-90"
+                  className="text-white hover:opacity-90"
                 >
                   (754) 207-0982
                 </a>
