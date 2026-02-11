@@ -16,7 +16,7 @@ export default function Footer() {
               <span className="text-2xl font-bold text-white">Hosvi</span>
             </div>
             <p className="text-slate-300 text-sm max-w-3xl">
-              We connect chiropractors with clients who are ready to book. Hosvi combines targeted outbound campaigns, conversion-first landing experiences, and a streamlined CRM to turn interest into appointments.
+              Hosvi coordinates referrals between personal injury law firms and treatment provider clinics to help paralegals place clients with chiropractors and physical therapy clinics that accept personal injury cases.
             </p>
             <div className="flex space-x-4">
               <a
@@ -58,26 +58,10 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <Link
-                  href="/#services"
+                  href="/about"
                   className="text-slate-300 hover:text-white text-sm"
                 >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/#pricing"
-                  className="text-slate-300 hover:text-white text-sm"
-                >
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/#testimonials"
-                  className="text-slate-300 hover:text-white text-sm"
-                >
-                  Testimonials
+                  About
                 </Link>
               </li>
               <li>

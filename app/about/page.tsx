@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About Hosvi | Marketing for Chiropractors",
+  title: "About Hosvi | Referral Coordination for Personal Injury Cases",
   description:
-    "Hosvi is a performance-driven marketing agency connecting chiropractors with qualified clients through outbound, CRM automation, and booked appointments.",
+    "Hosvi provides referral coordination and case placement services for personal injury matters. We do not provide medical or legal services.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
+    <div className="bg-white text-slate-900">
       {/* Hero */}
       <section className="relative isolate overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
@@ -17,107 +17,88 @@ export default function AboutPage() {
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
               About Hosvi
             </h1>
-            <p className="mt-4 text-lg leading-8 text-slate-700 dark:text-slate-300">
-              We connect chiropractors with clients who are ready to book. Hosvi
-              combines targeted outbound campaigns, conversion-first landing experiences,
-              and a streamlined CRM to turn interest into appointments.
+            <p className="mt-4 text-lg leading-8 text-slate-700">
+              Hosvi provides referral coordination and case placement services for personal injury matters. We coordinate between personal injury law firms and treatment provider clinics to help clients receive timely, quality treatment.
             </p>
           </div>
         </div>
       </section>
 
       {/* What we do */}
-      <section className="border-t border-slate-100 dark:border-slate-800">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h2 className="text-2xl font-bold">Who we serve</h2>
-            <p className="mt-4 text-slate-700 dark:text-slate-300">
-              Our focus is on growth-minded chiropractors who want predictable
-              client acquisition without the headache. We help you consistently
-              fill your calendar with qualified appointments, not "leads" you have to chase.
-            </p>
-            <ul className="mt-6 space-y-2 text-slate-700 dark:text-slate-300 list-disc pl-5">
-              <li>Chiropractic clinics aiming to grow new patient starts</li>
-              <li>Multi-location chiropractic practices improving patient flow</li>
-              <li>Practices that value data, speed, and client experience</li>
-            </ul>
-          </div>
-          <div className="rounded-2xl border border-slate-200 dark:border-slate-800 p-6 bg-slate-50 dark:bg-slate-800/40">
-            <h3 className="text-lg font-semibold">What makes us different</h3>
-            <p className="mt-3 text-sm text-slate-700 dark:text-slate-300">
-              We don’t sell generic leads. We build a complete, closed-loop
-              system that turns outreach into booked appointments—and revenue.
-            </p>
-            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-              <div className="rounded-lg border border-slate-200 dark:border-slate-700 p-3">Targeted outbound</div>
-              <div className="rounded-lg border border-slate-200 dark:border-slate-700 p-3">Conversion-first funnels</div>
-              <div className="rounded-lg border border-slate-200 dark:border-slate-700 p-3">CRM + automation</div>
-              <div className="rounded-lg border border-slate-200 dark:border-slate-700 p-3">Booked appointments</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How we help */}
-      <section className="border-t border-slate-100 dark:border-slate-800">
+      <section className="border-t border-slate-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <h2 className="text-2xl font-bold">How we help you grow</h2>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-5 bg-white dark:bg-slate-900/40">
-              <h3 className="font-semibold">Outbound that books</h3>
-              <p className="mt-2 text-slate-700 dark:text-slate-300 text-sm">
-                Research-driven targeting and compliant cold outreach that
-                generates real conversations and appointment-ready demand.
+          <h2 className="text-2xl font-bold mb-6">Our Service</h2>
+          <p className="text-slate-700 mb-6">
+            Hosvi acts as a referral coordination and case placement broker, connecting personal injury paralegals with treatment providers who accept personal injury cases. Our mission is to streamline the referral process and ensure clients access appropriate treatment quickly and efficiently.
+          </p>
+          <div className="grid gap-6 sm:grid-cols-3">
+            <div className="rounded-xl border border-slate-200 p-5 bg-slate-50">
+              <h3 className="font-semibold mb-2">Personal Injury Law Firms</h3>
+              <p className="text-sm text-slate-700">
+                Streamlined referral process for client placements
               </p>
             </div>
-            <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-5 bg-white dark:bg-slate-900/40">
-              <h3 className="font-semibold">Conversion-first journeys</h3>
-              <p className="mt-2 text-slate-700 dark:text-slate-300 text-sm">
-                High-converting landing pages and booking flows designed
-                specifically for cash-pay and high-intent prospects.
+            <div className="rounded-xl border border-slate-200 p-5 bg-slate-50">
+              <h3 className="font-semibold mb-2">Chiropractor Clinics</h3>
+              <p className="text-sm text-slate-700">
+                Coordinated case placements from partner law firms
               </p>
             </div>
-            <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-5 bg-white dark:bg-slate-900/40">
-              <h3 className="font-semibold">CRM + automation</h3>
-              <p className="mt-2 text-slate-700 dark:text-slate-300 text-sm">
-                Centralized tracking, instant follow-up, and smart reminders so
-                no opportunity slips through the cracks.
+            <div className="rounded-xl border border-slate-200 p-5 bg-slate-50">
+              <h3 className="font-semibold mb-2">Physical Therapy Clinics</h3>
+              <p className="text-sm text-slate-700">
+                Consistent referral stream of qualified cases
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Hosvi */}
-      <section className="border-t border-slate-100 dark:border-slate-800">
+      {/* Important Disclaimer */}
+      <section className="border-t border-slate-100 bg-amber-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <h2 className="text-2xl font-bold">Why clinics choose Hosvi</h2>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2">
-            <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-5">
-              <h3 className="font-semibold">Performance mindset</h3>
-              <p className="mt-2 text-slate-700 dark:text-slate-300 text-sm">
-                We optimize for booked appointments and revenue—never vanity
-                metrics.
+          <h2 className="text-2xl font-bold mb-6">Important Disclaimer</h2>
+          <div className="space-y-4 text-slate-700">
+            <p>
+              <strong>Hosvi does not provide medical services or legal services.</strong> We are a referral coordination and case placement broker only. All treatment recommendations, medical advice, and legal counsel must come from licensed medical professionals and attorneys.
+            </p>
+            <p>
+              Hosvi facilitates introductions between law firms and treatment providers. We do not diagnose, treat, or provide any form of medical or legal advice. Treatment decisions are made solely by the client and their healthcare providers or attorneys.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="border-t border-slate-100">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+          <h2 className="text-2xl font-bold mb-8">How It Works</h2>
+          <div className="grid gap-6 sm:grid-cols-3">
+            <div className="rounded-xl border border-slate-200 p-6">
+              <div className="flex items-center justify-center w-10 h-10 bg-indigo-600 text-white rounded-full font-bold mb-4">
+                1
+              </div>
+              <h3 className="font-semibold mb-3">Paralegal Submits</h3>
+              <p className="text-sm text-slate-700">
+                Personal injury paralegals provide client information and treatment needs through our coordination process.
               </p>
             </div>
-            <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-5">
-              <h3 className="font-semibold">Built for speed</h3>
-              <p className="mt-2 text-slate-700 dark:text-slate-300 text-sm">
-                From launch to first bookings in days, not months.
+            <div className="rounded-xl border border-slate-200 p-6">
+              <div className="flex items-center justify-center w-10 h-10 bg-indigo-600 text-white rounded-full font-bold mb-4">
+                2
+              </div>
+              <h3 className="font-semibold mb-3">Hosvi Coordinates</h3>
+              <p className="text-sm text-slate-700">
+                We match with an appropriate treatment provider in our network of clinics.
               </p>
             </div>
-            <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-5">
-              <h3 className="font-semibold">Transparent reporting</h3>
-              <p className="mt-2 text-slate-700 dark:text-slate-300 text-sm">
-                Clear pipeline visibility—see exactly where each opportunity is
-                in the journey.
-              </p>
-            </div>
-            <div className="rounded-xl border border-slate-200 dark:border-slate-800 p-5">
-              <h3 className="font-semibold">Patient experience first</h3>
-              <p className="mt-2 text-slate-700 dark:text-slate-300 text-sm">
-                Messaging that respects your brand and delivers a premium client
-                experience.
+            <div className="rounded-xl border border-slate-200 p-6">
+              <div className="flex items-center justify-center w-10 h-10 bg-indigo-600 text-white rounded-full font-bold mb-4">
+                3
+              </div>
+              <h3 className="font-semibold mb-3">Clinic Engages</h3>
+              <p className="text-sm text-slate-700">
+                The treatment provider contacts the client to schedule and begin appropriate care.
               </p>
             </div>
           </div>
@@ -125,27 +106,20 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="border-t border-slate-100 dark:border-slate-800">
+      <section className="border-t border-slate-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold">
-            Ready to connect with more clients?
+            Interested in Partnership?
           </h2>
-          <p className="mt-3 text-slate-700 dark:text-slate-300">
-            Start your 30-day free trial and see how Hosvi fills your calendar
-            with qualified appointments.
+          <p className="mt-3 text-slate-700">
+            Contact us to learn more about how Hosvi can help coordinate referrals for your organization.
           </p>
-          <div className="mt-6 flex items-center justify-center gap-4">
-            <Link
-              href="/trial"
-              className="inline-flex items-center px-5 py-3 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white font-medium shadow"
-            >
-              Start Free Trial
-            </Link>
+          <div className="mt-6">
             <Link
               href="/#contact"
-              className="inline-flex items-center px-5 py-3 rounded-md border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 font-medium"
+              className="inline-flex items-center px-6 py-3 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white font-medium shadow"
             >
-              Talk to us
+              Get in Touch
             </Link>
           </div>
         </div>

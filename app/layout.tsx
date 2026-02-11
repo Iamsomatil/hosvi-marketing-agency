@@ -1,17 +1,40 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import dynamic from "next/dynamic";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import Providers from "./providers";
 
+const ChatWidget = dynamic(() => import("../components/ChatWidget"), {
+  ssr: false,
+});
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Hosvi - Get More Clients with Our 30-Day Free Trial",
+  title: "Hosvi - Referral Coordination for Personal Injury Cases",
   description:
-    "Complete lead generation system for chiropractors in Florida. Outbound email, CRM tracking, booking pages, and more.",
-  keywords: "chiropractic marketing, lead generation, Florida",
+    "Hosvi coordinates referrals between personal injury law firms and treatment provider clinics. We help paralegals place clients with chiropractors and physical therapy clinics that accept personal injury cases.",
+  keywords: "personal injury referral, case placement, treatment providers",
+  metadataBase: new URL("https://hosvi.com"),
+  icons: {
+    icon: "/hosvi-logo.jpg",
+  },
+  openGraph: {
+    title: "Hosvi - Referral Coordination for Personal Injury Cases",
+    description:
+      "Hosvi coordinates referrals between personal injury law firms and treatment provider clinics.",
+    url: "https://hosvi.com",
+    siteName: "Hosvi",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hosvi - Referral Coordination for Personal Injury Cases",
+    description:
+      "Hosvi coordinates referrals between personal injury law firms and treatment provider clinics.",
+  },
 };
 
 export default function RootLayout({
@@ -37,6 +60,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <ChatWidget />
         </Providers>
       </body>
     </html>

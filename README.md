@@ -1,43 +1,48 @@
-# Hosvi - Marketing Site & Client Portal
+# Hosvi - Referral Coordination for Personal Injury Cases
 
-A modern, gradient-driven marketing site and secure client portal for lead generation services targeting chiropractors in Florida.
+A modern marketing website for Hosvi, a referral coordination platform that connects personal injury law firms with treatment provider clinics (chiropractors and physical therapists) that accept personal injury cases.
+
+## Overview
+
+Hosvi streamlines the referral process by:
+- Helping personal injury paralegals quickly place clients with vetted treatment providers
+- Enabling clinics to receive consistent patient referrals from law firms
+- Reducing friction in the treatment placement workflow
 
 ## Features
 
-- **Marketing Landing Page**: Compelling hero with gradient backgrounds, value propositions, and pricing plans
-- **30-Day Free Trial**: Self-serve onboarding with automatic conversion
-- **Client Dashboard**: Real-time KPI tracking, analytics, and growth metrics
-- **Admin Portal**: Monitor all client accounts and performance
-- **Role-Based Authentication**: Secure access control with NextAuth.js
-- **Data Visualization**: Interactive charts with Recharts
-- **CSV Export**: Export leads and campaign data
-- **Responsive Design**: Mobile-first approach with accessibility compliance
+- **Modern Marketing Landing Page** - Responsive hero section with mission-aligned imagery
+- **How It Works Section** - Clear 3-step process explanation
+- **Who We Serve** - Highlights for law firms and treatment providers
+- **Contact Section** - Email-based inquiry form with rate limiting
+- **Floating Chat Widget** - AI-powered chatbot for visitor engagement
+- **Mobile-First Design** - Fully responsive across all devices
+- **Smooth Animations** - Framer Motion for polished interactions
 
 ## Tech Stack
 
 - **Framework**: Next.js 14 with App Router
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS with custom gradient system
-- **Database**: PostgreSQL with Prisma ORM
-- **Authentication**: NextAuth.js with credentials provider
-- **Charts**: Recharts for data visualization
-- **Animations**: Framer Motion for smooth interactions
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
 - **Icons**: Lucide React
+- **Email**: Resend
+- **Chat**: OpenAI API
+- **UI Notifications**: React Hot Toast
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ 
-- PostgreSQL database
-- NPM or Yarn
+- Node.js 18+
+- npm or yarn
 
 ### Installation
 
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd hosvi-marketing-portal
+cd hosvi-marketing-agency
 ```
 
 2. Install dependencies:
@@ -47,92 +52,93 @@ npm install
 
 3. Set up environment variables:
 ```bash
-cp .env.local.example .env.local
+cp .env.example .env.local
 ```
 
 Edit `.env.local` with your configuration:
 ```
-DATABASE_URL="postgresql://username:password@localhost:5432/hosvi_dev"
-NEXTAUTH_URL="http://localhost:3000"
-NEXTAUTH_SECRET="your-secret-key-here"
-NEXT_PUBLIC_CALENDLY_URL="https://calendly.com/your-account/consultation"
+RESEND_API_KEY="your_resend_api_key"
+OPENAI_API_KEY="your_openai_api_key"
 ```
 
-4. Set up the database:
-```bash
-npx prisma generate
-npx prisma db push
-npx prisma db seed
-```
-
-5. Start the development server:
+4. Start the development server:
 ```bash
 npm run dev
 ```
 
-## Default Login Credentials
-
-After seeding the database:
-- **Admin**: admin@hosvi.com / admin123
-- **Demo Client**: demo@clinic.com / demo123
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ## Project Structure
 
 ```
-├── app/                    # Next.js app directory
-│   ├── (auth)/            # Authentication pages
-│   ├── api/               # API routes
-│   ├── dashboard/         # Client dashboard
-│   ├── admin/             # Admin portal
-│   └── trial/             # Trial signup
-├── components/            # Reusable components
-├── lib/                   # Utility functions
-├── prisma/                # Database schema and migrations
-└── public/                # Static assets
+├── app/
+│   ├── layout.tsx           # Root layout with navbar and footer
+│   ├── page.tsx             # Home page
+│   ├── about/               # About page
+│   ├── privacy/             # Privacy policy
+│   ├── terms/               # Terms of service
+│   ├── cookies/             # Cookie policy
+│   ├── home/
+│   │   ├── HomePageClient.tsx     # Hero and main sections
+│   │   └── ContactSection.tsx     # Contact form
+│   ├── api/
+│   │   ├── contact/route.ts       # Contact form submission
+│   │   └── chat/route.ts          # Chatbot API
+│   └── globals.css          # Global styles
+├── components/
+│   ├── NavBar.tsx           # Navigation bar
+│   ├── Footer.tsx           # Footer with links
+│   ├── ChatWidget.tsx       # Floating chat widget
+│   └── ui/                  # UI utility components
+├── lib/
+│   └── utils.ts             # Utility functions
+├── public/
+│   ├── hero-hosvi.png       # Hero section image
+│   ├── testimonial-*.png    # Testimonial images
+│   └── robots.txt
+├── package.json
+└── README.md
 ```
 
-## Key Components
+## Key Pages
 
-### Landing Page (`/`)
-- Hero section with gradient background
-- Benefits and services overview
-- Pricing plans comparison
-- Call-to-action for free trial
+### Home (`/`)
+- Hero section with hero image and call-to-action
+- How It Works process steps
+- Who We Serve sections
+- Contact form
+- Final CTA section
 
-### Trial Signup (`/trial`)
-- Multi-step onboarding form
-- Plan selection (Basic $1,500/mo, Premium $3,000/mo)
-- Demo data generation for new accounts
+### About (`/about`)
+- Company mission and values
+- Service overview
+- Benefits for law firms and clinics
 
-### Client Dashboard (`/dashboard`)
-- KPI metrics display
-- Interactive charts and graphs
-- Lead management table
-- Campaign performance tracking
-- Growth since registration metrics
-- CSV export functionality
-
-### Admin Portal (`/admin`)
-- Organization overview
-- Client account monitoring
-- Usage statistics
-- Account status tracking
-
-## Database Schema
-
-Key models:
-- **User**: Authentication and role management
-- **Org**: Organization/client accounts
-- **Lead**: Lead tracking and management
-- **Campaign**: Email campaign performance
-- **KpiDaily**: Daily metrics aggregation
+### Legal Pages
+- **Privacy Policy** (`/privacy`)
+- **Terms of Service** (`/terms`)
+- **Cookie Policy** (`/cookies`)
 
 ## API Endpoints
 
-- `POST /api/trial/start` - Create new trial account
-- `GET /api/dashboard/summary` - Dashboard data
-- `GET /api/dashboard/export.csv` - Data export
-- `GET /api/admin/orgs` - Admin organization list
+- `POST /api/contact` - Submit contact form
+- `POST /api/chat` - Chat widget messages
+
+## Environment Variables
+
+- `RESEND_API_KEY` - API key for email service (contact form)
+- `OPENAI_API_KEY` - API key for chatbot responses
+
+## Development
+
+### Available Scripts
+
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm start        # Start production server
+npm run lint     # Run ESLint
+```
 
 ## Deployment
 
@@ -141,51 +147,37 @@ Key models:
 npm run build
 ```
 
-2. Set up production database and environment variables
+2. Deploy to your hosting provider (Vercel, Netlify, etc.)
 
-3. Run database migrations:
-```bash
-npx prisma migrate deploy
-```
+3. Set environment variables in your hosting platform
 
-4. Start the production server:
-```bash
-npm start
-```
+## Design Features
 
-## Environment Variables
+- **Gradient backgrounds** for modern visual appeal
+- **Responsive grid layouts** that adapt to all screen sizes
+- **Smooth animations** with Framer Motion for interactivity
+- **Accessible color schemes** with proper contrast ratios
+- **Mobile-first approach** ensuring excellent UX on all devices
 
-Required environment variables:
-- `DATABASE_URL` - PostgreSQL connection string
-- `NEXTAUTH_URL` - Application URL
-- `NEXTAUTH_SECRET` - Authentication secret
-- `NEXT_PUBLIC_CALENDLY_URL` - Calendly booking link
+## Security
 
-## Security Features
-
-- Password hashing with bcryptjs
-- JWT-based session management
-- Role-based access control
-- Server-side authorization checks
+- Rate limiting on contact and chat endpoints
 - Input validation and sanitization
-- CSRF protection via NextAuth.js
+- CORS-safe API design
+- No sensitive data in frontend code
 
-## Performance Optimization
+## Performance
 
 - Server-side rendering with Next.js
-- Image optimization
+- Optimized images with Next.js Image component
 - Code splitting and lazy loading
-- Responsive design with mobile-first approach
-- Optimized database queries with Prisma
+- Responsive images for different screen sizes
 
-## Accessibility
+## Contact & Support
 
-- WCAG AA compliance
-- Keyboard navigation support
-- Focus management
-- Screen reader compatibility
-- High contrast color schemes
-- Reduced motion support
+For inquiries or partnerships:
+- Email: info@hosvi.com
+- Phone: (754) 207-0982
 
 ## License
 

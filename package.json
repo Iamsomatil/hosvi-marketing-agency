@@ -1,60 +1,31 @@
 {
-  "name": "hosvi-marketing-portal",
+  "name": "hosvi-referral-brokerage",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_OPTIONS='--max-old-space-size=4096' next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
-    "build:analyze": "ANALYZE=true next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "prisma generate",
-    "db:generate": "prisma generate",
-    "db:push": "prisma db push",
-    "db:migrate": "prisma migrate dev",
-    "db:seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts",
-    "db:create-test-user": "ts-node --compiler-options {\"module\":\"CommonJS\"} scripts/create-test-user.ts",
-    "optimize-images": "node scripts/optimize-images.js",
-    "analyze": "cross-env ANALYZE=true next build",
-    "analyze:server": "cross-env ANALYZE=server next build",
-    "analyze:browser": "cross-env ANALYZE=browser next build",
-    "profile": "cross-env PROFILE=1 next build"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^2.10.0",
-    "@prisma/client": "^6.15.0",
-    "@types/bcryptjs": "^2.4.6",
-    "bcryptjs": "^2.4.3",
-    "clsx": "^2.1.1",
-    "date-fns": "^3.6.0",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.344.0",
     "next": "^14.2.32",
-    "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.6.0",
-    "recharts": "^2.15.4",
-    "resend": "^6.0.3",
-    "tailwind-merge": "^3.3.1",
-    "stripe": "^15.12.0"
+    "resend": "^6.0.3"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^15.5.3",
     "@types/node": "^20.8.0",
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "autoprefixer": "^10.4.16",
     "cross-env": "^10.0.0",
     "eslint": "^8.53.0",
+    "eslint": "^8.53.0",
     "eslint-config-next": "14.2.5",
-    "postcss": "^8.4.31",
-    "prisma": "^6.15.0",
-    "sharp": "^0.33.3",
-    "svgo": "^3.3.2",
-    "tailwindcss": "^3.4.1",
-    "tsx": "^4.16.2",
-    "typescript": "^5.2.2",
-    "webpack": "^5.101.3"
+    "postcss": "^8.4.312.2"
   }
 }

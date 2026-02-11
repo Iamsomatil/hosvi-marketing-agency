@@ -5,15 +5,18 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 export function ContactSection() {
-  // TODO: Coordinates source: Google Maps place for "6421 N. Florida Ave, Suite D-1130, Tampa, FL 33604".
   const HOSVI_LOCATION = { lat: 27.998344, lng: -82.459747 };
-  const DEFAULT_ZOOM = 15; // street-level
+  const DEFAULT_ZOOM = 15;
+
   const [formData, setFormData] = useState({
     name: "",
+    company: "",
     email: "",
     phone: "",
     message: "",
+    website: "",
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
     success: boolean;
@@ -52,16 +55,16 @@ export function ContactSection() {
 
       setSubmitStatus({
         success: true,
-        message:
-          "Thank you for your message! We'll get back to you within 24 hours.",
+        message: "Thank you for your message! We'll get back to you within 24 hours.",
       });
 
-      // Reset form
       setFormData({
         name: "",
+        company: "",
         email: "",
         phone: "",
         message: "",
+        website: "",
       });
     } catch (error) {
       console.error("Form submission error:", error);
@@ -81,12 +84,9 @@ export function ContactSection() {
     <section id="contact" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-slate-900 mb-4">
-            Get In Touch
-          </h2>
+          <h2 className="text-3xl font-bold text-slate-900 mb-4">Get In Touch</h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Have questions about our services? Reach out to our team and we'll
-            be happy to help.
+            Have questions about our referral coordination services? Reach out to our team.
           </p>
         </div>
 
@@ -97,118 +97,124 @@ export function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="bg-slate-50 p-6 sm:p-8 rounded-2xl shadow-sm"
           >
-            <h3 className="text-xl font-semibold text-slate-900 mb-6">
-              Send us a message
-            </h3>
-
-            {submitStatus && (
-              <div
-                className={`p-4 mb-6 rounded-lg ${
-                  submitStatus.success
-                    ? "bg-green-50 text-green-800"
-                    : "bg-red-50 text-red-800"
-                }`}
-              >
-                {submitStatus.message}
+            <form onSubmit={handleSubmit} className="space-y-6 bg-slate-50 p-8 rounded-lg">
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input
+                  id="website"
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
               </div>
-            )}
-
-            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-slate-700 mb-1"
-                >
-                  Full Name *
+                <label htmlFor="name" className="block text-sm font-medium text-slate-900 mb-2">
+                  Name
                 </label>
                 <input
-                  type="text"
                   id="name"
+                  type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                  placeholder="John Smith"
+                  autoComplete="name"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  placeholder="Your name"
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-slate-700 mb-1"
-                  >
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                    placeholder="your@email.com"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-slate-700 mb-1"
-                  >
-                    Phone
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                    placeholder="(555) 123-4567"
-                  />
-                </div>
+              <div>
+                <label htmlFor="company" className="block text-sm font-medium text-slate-900 mb-2">
+                  Company
+                </label>
+                <input
+                  id="company"
+                  type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  autoComplete="organization"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  placeholder="Your company name"
+                />
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-slate-700 mb-1"
-                >
-                  Message *
+                <label htmlFor="email" className="block text-sm font-medium text-slate-900 mb-2">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  autoComplete="email"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  placeholder="your@email.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-slate-900 mb-2">
+                  Phone
+                </label>
+                <input
+                  id="phone"
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  autoComplete="tel"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  placeholder="(555) 123-4567"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-slate-900 mb-2">
+                  Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  rows={4}
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                  placeholder="How can we help you?"
-                ></textarea>
+                  rows={4}
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  placeholder="Tell us about your referral needs..."
+                />
               </div>
 
-              <div className="pt-2">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              {submitStatus && (
+                <div
+                  className={`p-4 rounded-lg ${
+                    submitStatus.success
+                      ? "bg-green-50 text-green-800"
+                      : "bg-red-50 text-red-800"
+                  }`}
+                  role="status"
+                  aria-live="polite"
                 >
-                  {isSubmitting ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      Send Message
-                      <Send className="ml-2 -mr-1 w-5 h-5" />
-                    </>
-                  )}
-                </button>
-              </div>
+                  {submitStatus.message}
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors"
+              >
+                <Send className="h-4 w-4" />
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </button>
             </form>
           </motion.div>
 
@@ -217,83 +223,53 @@ export function ContactSection() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-6"
+            transition={{ duration: 0.5 }}
+            className="space-y-8"
           >
-            <div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-4">
-                Contact Information
-              </h3>
-              <p className="text-slate-600 mb-6">
-                Our team is here to help chiropractic practices grow. Reach out
-                with any questions about our services or to schedule a
-                consultation.
-              </p>
-            </div>
-
             <div className="space-y-4">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                  <Mail className="h-5 w-5 text-indigo-600" />
-                </div>
-                <div className="ml-4">
-                  <h4 className="text-sm font-medium text-slate-900">
-                    Email us
-                  </h4>
-                  <a
-                    href="mailto:hello@hosvi.com"
-                    className="text-indigo-600 hover:text-indigo-500"
-                  >
+              <div className="flex items-start gap-4">
+                <Mail className="h-6 w-6 text-indigo-600 mt-1" />
+                <div>
+                  <h3 className="font-semibold text-slate-900">Email</h3>
+                  <a href="mailto:info@hosvi.com" className="text-slate-600 hover:text-indigo-600">
                     info@hosvi.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start">
-                <div className="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                  <Phone className="h-5 w-5 text-indigo-600" />
-                </div>
-                <div className="ml-4">
-                  <h4 className="text-sm font-medium text-slate-900">
-                    Call us
-                  </h4>
-                  <a
-                    href="tel:+17542070982"
-                    className="text-slate-600 hover:text-slate-500"
-                  >
-                    (754) 207-0982
+              <div className="flex items-start gap-4">
+                <Phone className="h-6 w-6 text-indigo-600 mt-1" />
+                <div>
+                  <h3 className="font-semibold text-slate-900">Phone</h3>
+                  <a href="tel:7542070982" className="text-slate-600 hover:text-indigo-600">
+                    754-207-0982
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start">
-                <div className="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                  <MapPin className="h-5 w-5 text-indigo-600" />
-                </div>
-                <div className="ml-4">
-                  <h4 className="text-sm font-medium text-slate-900">
-                    Visit us
-                  </h4>
+              <div className="flex items-start gap-4">
+                <MapPin className="h-6 w-6 text-indigo-600 mt-1" />
+                <div>
+                  <h3 className="font-semibold text-slate-900">Address</h3>
                   <p className="text-slate-600">
-                    6421 N. Florida Ave, Suite D-1130, Tampa, FL 33604
+                    6421 N. Florida Ave, Suite D-1130
+                    <br />
+                    Tampa, FL 33604
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="pt-4">
-              <div className="relative w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm">
-                <div className="w-full aspect-video bg-slate-100">
-                  <iframe
-                    title="Hosvi Map — 6421 N. Florida Ave, Suite D-1130, Tampa, FL 33604"
-                    aria-label="Map showing Hosvi Tampa office location at 6421 N. Florida Ave, Suite D-1130, Tampa, FL 33604"
-                    className="block w-full h-full border-0"
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    allowFullScreen
-                    src={`https://www.google.com/maps?q=${HOSVI_LOCATION.lat},${HOSVI_LOCATION.lng}&z=${DEFAULT_ZOOM}&output=embed`}
-                  />
-                </div>
+            {/* Map */}
+            <div className="relative w-full overflow-hidden rounded-xl border border-slate-200 shadow-sm">
+              <div className="w-full aspect-video bg-slate-100">
+                <iframe
+                  title="Hosvi Office Location"
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src={`https://www.google.com/maps?q=${HOSVI_LOCATION.lat},${HOSVI_LOCATION.lng}&z=${DEFAULT_ZOOM}&output=embed`}
+                />
               </div>
             </div>
           </motion.div>
