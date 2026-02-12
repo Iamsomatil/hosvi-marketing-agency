@@ -125,9 +125,9 @@ export default function ChatWidget() {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {isOpen && (
-        <div className="w-[380px] h-[480px] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-6rem)] bg-white/85 backdrop-blur-xl shadow-2xl border border-slate-200/60 rounded-2xl flex flex-col overflow-hidden relative">
+        <div className="w-[480px] h-[600px] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-6rem)] bg-white/85 backdrop-blur-xl shadow-2xl border border-slate-200/60 rounded-2xl flex flex-col overflow-hidden relative">
           {/* Chat bubble tail */}
-          <div className="absolute bottom-0 right-8 w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-b-[20px] border-b-white/85 transform translate-y-full"></div>
+          <div className="absolute bottom-0 right-12 w-0 h-0 border-l-[24px] border-l-transparent border-r-[24px] border-r-transparent border-t-[24px] border-t-white/85 transform translate-y-full"></div>
           
           <div className="flex items-center justify-between px-4 py-3 text-white bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500 rounded-t-2xl">
             <div className="text-sm font-semibold">Ask Hosvi</div>

@@ -9,18 +9,18 @@ import { ContactSection } from "./ContactSection";
 export default function HomePageClient() {
   return (
     <div className="min-h-screen">
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 to-indigo-900 text-white py-20 sm:py-32">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 to-indigo-900 text-white py-12 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
                 Referral Coordination for Personal Injury Cases
               </h1>
-              <p className="text-lg sm:text-xl text-blue-100 mb-8 max-w-2xl">
+              <p className="text-lg sm:text-xl text-blue-100 mb-6 max-w-2xl">
                 Hosvi coordinates referrals between personal injury law firms and
                 treatment provider clinics. We help paralegals place clients with
                 chiropractors and physical therapy clinics that accept personal injury
@@ -44,8 +44,8 @@ export default function HomePageClient() {
               <Image
                 src="/hero-hosvi.png"
                 alt="Hosvi - Referral Coordination Platform"
-                width={500}
-                height={400}
+                width={600}
+                height={480}
                 priority
                 className="rounded-lg shadow-2xl max-w-full h-auto"
               />

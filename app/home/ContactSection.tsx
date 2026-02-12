@@ -234,6 +234,9 @@ export function ContactSection() {
                   <a href="mailto:info@hosvi.com" className="text-slate-600 hover:text-indigo-600">
                     info@hosvi.com
                   </a>
+                  <a href="mailto:contact@hosvi.com" className="block text-slate-600 hover:text-indigo-600">
+                    contact@hosvi.com
+                  </a>
                 </div>
               </div>
 

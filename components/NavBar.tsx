@@ -22,9 +22,9 @@ export default function NavBar() {
             <Image
               src="/hosvi-logo.jpg"
               alt="Hosvi Logo"
-              width={40}
-              height={40}
-              className="h-10 w-auto"
+              width={60}
+              height={60}
+              className="h-16 w-auto"
               priority
             />
           </Link>
