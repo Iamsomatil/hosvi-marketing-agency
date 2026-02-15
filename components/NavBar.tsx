@@ -16,15 +16,15 @@ export default function NavBar() {
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="/hosvi-logo.jpg"
               alt="Hosvi Logo"
-              width={60}
-              height={60}
-              className="h-16 w-auto"
+              width={100}
+              height={100}
+              className="h-20 w-auto"
               priority
             />
           </Link>

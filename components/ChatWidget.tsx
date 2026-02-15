@@ -125,7 +125,7 @@ export default function ChatWidget() {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {isOpen && (
-        <div className="w-[480px] h-[600px] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-6rem)] bg-white/85 backdrop-blur-xl shadow-2xl border border-slate-200/60 rounded-2xl flex flex-col overflow-hidden relative">
+        <div className="w-[560px] h-[700px] max-w-[calc(100vw-2rem)] max-h-[calc(100vh-6rem)] bg-white/85 backdrop-blur-xl shadow-2xl border border-slate-200/60 rounded-2xl flex flex-col overflow-hidden relative">
           {/* Chat bubble tail */}
           <div className="absolute bottom-0 right-12 w-0 h-0 border-l-[24px] border-l-transparent border-r-[24px] border-r-transparent border-t-[24px] border-t-white/85 transform translate-y-full"></div>
           
@@ -199,7 +199,7 @@ export default function ChatWidget() {
         type="button"
         aria-label="Open chat"
         onClick={() => setIsOpen((open) => !open)}
-        className="mt-3 w-14 h-14 rounded-full text-white shadow-xl flex items-center justify-center text-base font-semibold transition bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-500 hover:brightness-110">
+        className="mt-3 w-16 h-16 rounded-full text-white shadow-xl flex items-center justify-center text-lg font-semibold transition bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-500 hover:brightness-110">
         {isOpen ? "−" : "Chat"}
       </button>
     </div>

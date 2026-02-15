@@ -1,9 +1,12 @@
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
 
 type ChatMessage = {
   role: "user" | "assistant";
   content: string;
 };
+
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 30;
@@ -28,35 +31,23 @@ const isRateLimited = (ip: string) => {
   return false;
 };
 
-const buildReply = (message: string) => {
-  const text = message.toLowerCase();
+const SYSTEM_PROMPT = `You are Hosvi, a friendly and professional support agent for Hosvi - a referral coordination platform connecting personal injury law firms with treatment provider clinics.
 
-  if (text.includes("law firm") || text.includes("paralegal")) {
-    return "We help personal injury law firms place clients quickly with vetted clinics. If you share your practice location and typical case volume, we can outline onboarding and turnaround times.";
-  }
+About Hosvi:
+- We coordinate referrals between personal injury law firms and treatment provider clinics
+- We operate primarily in the Tampa Bay area and can expand based on partner needs
+- We help law firms place clients quickly with vetted clinics
+- We help treatment providers (clinics, chiropractors, physical therapists) access a network of law firm referrals
+- We handle intake, documentation, and scheduling workflows
 
-  if (text.includes("clinic") || text.includes("chiropractor") || text.includes("physical therapy")) {
-    return "We partner with treatment providers that accept personal injury cases. Let me know your specialty, location, and capacity, and we can discuss referral volume and onboarding.";
-  }
+Key points:
+- You do NOT provide medical or legal advice
+- Be concise and helpful
+- Ask clarifying questions if the user's role (law firm vs clinic) is unclear
+- Share contact info when appropriate: info@hosvi.com or (754) 207-0982
+- Offer to collect their information for follow-up
 
-  if (text.includes("coverage") || text.includes("area") || text.includes("location")) {
-    return "We coordinate referrals across the Tampa Bay area and can expand based on partner needs. Tell me your primary location and preferred radius.";
-  }
-
-  if (text.includes("pricing") || text.includes("cost") || text.includes("fee")) {
-    return "Pricing depends on partner type and volume. If you share whether you're a law firm or clinic, I can route you to the right details.";
-  }
-
-  if (text.includes("onboard") || text.includes("start") || text.includes("setup")) {
-    return "Onboarding is straightforward: we confirm your intake preferences, required documentation, and scheduling workflow. Share your role and location to get started.";
-  }
-
-  if (text.includes("contact") || text.includes("email") || text.includes("phone")) {
-    return "You can reach us at info@hosvi.com or (754) 207-0982. If you'd like, leave your details here and we'll follow up within 24 hours.";
-  }
-
-  return "Thanks for reaching out. We coordinate referrals between personal injury law firms and treatment provider clinics, and do not provide medical or legal advice. How can we help you today?";
-};
+Tone: Professional, friendly, and solution-oriented.`;
 
 export async function POST(request: Request) {
   try {
@@ -70,11 +61,43 @@ export async function POST(request: Request) {
 
     const body = (await request.json()) as { messages?: ChatMessage[] };
     const messages = Array.isArray(body.messages) ? body.messages : [];
-    const lastUserMessage = [...messages]
-      .reverse()
-      .find((msg) => msg?.role === "user" && typeof msg.content === "string");
 
-    const reply = buildReply(lastUserMessage?.content?.trim() || "");
+    if (messages.length === 0) {
+      return NextResponse.json(
+        { error: "No messages provided" },
+        { status: 400 }
+      );
+    }
+
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+
+    // Convert messages to Gemini format
+    const geminiMessages = messages.map((msg) => ({
+      role: msg.role === "user" ? "user" : "model",
+      parts: [{ text: msg.content }],
+    }));
+
+    // Filter history to only include valid pairs (must start with "user")
+    // Find the first user message
+    const firstUserIndex = geminiMessages.findIndex((m) => m.role === "user");
+    const validHistory = firstUserIndex >= 0 ? geminiMessages.slice(0, -1).slice(firstUserIndex) : [];
+
+    const chat = model.startChat({
+      history: validHistory,
+      generationConfig: {
+        maxOutputTokens: 500,
+        temperature: 0.7,
+      },
+      systemInstruction: SYSTEM_PROMPT,
+    });
+
+    // Send only the last user message
+    const lastMessage = geminiMessages[geminiMessages.length - 1];
+    const response = await chat.sendMessage(lastMessage.parts[0].text);
+
+    const reply =
+      response.response.text() ||
+      "Sorry, I couldn't generate a response. Please try again.";
 
     return NextResponse.json({ reply });
   } catch (error) {
