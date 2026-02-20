@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 export function ContactSection() {
-  const HOSVI_LOCATION = { lat: 27.998344, lng: -82.459747 };
+  const HOSVI_ADDRESS = "6421 N. Florida Ave Suite D-1130, Tampa, FL 33604";
   const DEFAULT_ZOOM = 15;
+  const mapQuery = encodeURIComponent(HOSVI_ADDRESS);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -271,7 +272,7 @@ export function ContactSection() {
                   className="w-full h-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  src={`https://www.google.com/maps?q=${HOSVI_LOCATION.lat},${HOSVI_LOCATION.lng}&z=${DEFAULT_ZOOM}&output=embed`}
+                  src={`https://www.google.com/maps?q=${mapQuery}&z=${DEFAULT_ZOOM}&output=embed`}
                 />
               </div>
             </div>
