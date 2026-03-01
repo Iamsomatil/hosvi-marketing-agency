@@ -18,7 +18,7 @@ export default function AboutPage() {
               About Hosvi
             </h1>
             <p className="mt-4 text-lg leading-8 text-slate-700">
-              Hosvi provides referral coordination and case placement services for personal injury matters. We coordinate between personal injury law firms and treatment provider clinics to help clients receive timely, quality treatment.
+              Hosvi streamlines medical placement for personal injury law firms by connecting legal teams with treatment providers who accept PI cases. Our focus is fast scheduling, structured coordination, and reliable access to care for injured clients.
             </p>
           </div>
         </div>
@@ -29,26 +29,23 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <h2 className="text-2xl font-bold mb-6">Our Service</h2>
           <p className="text-slate-700 mb-6">
-            Hosvi acts as a referral coordination and case placement broker, connecting personal injury law firms and their legal teams with treatment providers who accept personal injury cases. Our mission is to streamline the referral process and ensure clients access appropriate treatment quickly and efficiently.
+            Hosvi coordinates medical placement for personal injury law firms, connecting legal teams with treatment providers who accept PI cases. We streamline the referral process so injured clients are placed quickly, professionally, and without administrative friction.
           </p>
           <div className="grid gap-6 sm:grid-cols-3">
             <div className="rounded-xl border border-slate-200 p-5 bg-slate-50">
-              <h3 className="font-semibold mb-2">Personal Injury Law Firms</h3>
-              <p className="text-sm text-slate-700">
-                Streamlined referral process for client placements
-              </p>
+              <h3 className="text-[15px] font-semibold mb-2">
+                Speak with our team about joining the Hosvi medical placement network.
+              </h3>
             </div>
             <div className="rounded-xl border border-slate-200 p-5 bg-slate-50">
-              <h3 className="font-semibold mb-2">Chiropractor Clinics</h3>
-              <p className="text-sm text-slate-700">
-                Coordinated case placements from partner law firms
-              </p>
+              <h3 className="text-[15px] font-semibold mb-2">
+                Structured case placements from verified legal partners
+              </h3>
             </div>
             <div className="rounded-xl border border-slate-200 p-5 bg-slate-50">
-              <h3 className="font-semibold mb-2">Physical Therapy Clinics</h3>
-              <p className="text-sm text-slate-700">
-                Consistent referral stream of qualified cases
-              </p>
+              <h3 className="text-[15px] font-semibold mb-2">
+                Consistent stream of qualified personal injury cases
+              </h3>
             </div>
           </div>
         </div>
@@ -60,10 +57,12 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold mb-6">Important Disclaimer</h2>
           <div className="space-y-4 text-slate-700">
             <p>
-              <strong>Hosvi does not provide medical services or legal services.</strong> We are a referral coordination and case placement broker only. All treatment recommendations, medical advice, and legal counsel must come from licensed medical professionals and attorneys.
+              <strong>Hosvi does not provide medical or legal services.</strong>  Hosvi operates as a medical placement coordination network connecting personal injury law firms with independent treatment providers.
+ <br />Hosvi does not diagnose, treat, provide medical advice, offer legal counsel, or make treatment recommendations. <br /><br />All medical and legal decisions are made solely between the client and their licensed healthcare providers or attorneys.
+Treatment providers within the Hosvi network are independent entities and are not employees, partners, or agents of Hosvi.
             </p>
             <p>
-              Hosvi facilitates introductions between law firms and treatment providers. We do not diagnose, treat, or provide any form of medical or legal advice. Treatment decisions are made solely by the client and their healthcare providers or attorneys.
+              Hosvi facilitates introductions and coordination only. Any care, treatment plans, legal strategies, or professional services are the sole responsibility of the respective licensed professionals and the client.
             </p>
           </div>
         </div>
@@ -78,27 +77,27 @@ export default function AboutPage() {
               <div className="flex items-center justify-center w-10 h-10 bg-indigo-600 text-white rounded-full font-bold mb-4">
                 1
               </div>
-              <h3 className="font-semibold mb-3">Legal Team Submits</h3>
+              <h3 className="font-semibold mb-3">Legal Team Submits Case</h3>
               <p className="text-sm text-slate-700">
-                Attorneys and case managers provide client information and treatment needs through our coordination process.
+                Attorneys and case managers submit client details and treatment requirements.
               </p>
             </div>
             <div className="rounded-xl border border-slate-200 p-6">
               <div className="flex items-center justify-center w-10 h-10 bg-indigo-600 text-white rounded-full font-bold mb-4">
                 2
               </div>
-              <h3 className="font-semibold mb-3">Hosvi Coordinates</h3>
+              <h3 className="font-semibold mb-3">Hosvi Manages Placement</h3>
               <p className="text-sm text-slate-700">
-                We match with an appropriate treatment provider in our network of clinics.
+                We connect the client with a qualified treatment provider in our network.
               </p>
             </div>
             <div className="rounded-xl border border-slate-200 p-6">
               <div className="flex items-center justify-center w-10 h-10 bg-indigo-600 text-white rounded-full font-bold mb-4">
                 3
               </div>
-              <h3 className="font-semibold mb-3">Clinic Engages</h3>
+              <h3 className="font-semibold mb-3">Clinic Schedules the Client</h3>
               <p className="text-sm text-slate-700">
-                The treatment provider contacts the client to schedule and begin appropriate care.
+                The treatment provider contacts the client directly to schedule treatment.
               </p>
             </div>
           </div>
@@ -112,7 +111,7 @@ export default function AboutPage() {
             Interested in Partnership?
           </h2>
           <p className="mt-3 text-slate-700">
-            Contact us to learn more about how Hosvi can help coordinate referrals for your organization.
+            Speak with our team about joining Hosvi medical placement network.
           </p>
           <div className="mt-6">
             <Link

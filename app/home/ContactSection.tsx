@@ -87,7 +87,7 @@ export function ContactSection() {
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-slate-900 mb-4">Get In Touch</h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Have questions about our referral coordination services? Reach out to our team.
+            Have questions about medical placement? Contact our team.
           </p>
         </div>
 
@@ -245,8 +245,8 @@ export function ContactSection() {
                 <Phone className="h-6 w-6 text-indigo-600 mt-1" />
                 <div>
                   <h3 className="font-semibold text-slate-900">Phone</h3>
-                  <a href="tel:7542070982" className="text-slate-600 hover:text-indigo-600">
-                    754-207-0982
+                  <a href="tel:+17542070982" className="text-slate-600 hover:text-indigo-600">
+                    (754) 207-0982
                   </a>
                 </div>
               </div>

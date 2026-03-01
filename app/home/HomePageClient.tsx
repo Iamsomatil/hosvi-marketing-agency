@@ -18,13 +18,10 @@ export default function HomePageClient() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-                Medical Placement Coordination Network for Personal Injury Law Firms
+                Medical Placement For Personal Injury Law Firms
               </h1>
               <p className="text-lg sm:text-xl text-blue-100 mb-6 max-w-2xl">
-                Hosvi connects personal injury law firms with trusted treatment providers.
-                We streamline the referral process by placing injured clients with
-                chiropractors and physical therapy clinics experienced in handling
-                personal injury cases.
+                Hosvi connects personal injury law firms with trusted treatment providers and manages the placement process from referral to scheduling. Injured clients are matched quickly with chiropractors and physical therapy clinics experienced in personal injury care.
               </p>
               <Link
                 href="#contact"

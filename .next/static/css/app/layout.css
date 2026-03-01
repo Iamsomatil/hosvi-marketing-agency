@@ -1223,6 +1223,9 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-\[15px\] {
+  font-size: 15px;
+}
 .font-bold {
   font-weight: 700;
 }
