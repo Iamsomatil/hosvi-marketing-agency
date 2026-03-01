@@ -34,7 +34,7 @@ export default function AboutPage() {
           <div className="grid gap-6 sm:grid-cols-3">
             <div className="rounded-xl border border-slate-200 p-5 bg-slate-50">
               <h3 className="text-[15px] font-semibold mb-2">
-                Speak with our team about joining the Hosvi medical placement network.
+                Speak with our team about joining the Hosvi medical placement network
               </h3>
             </div>
             <div className="rounded-xl border border-slate-200 p-5 bg-slate-50">
@@ -57,9 +57,12 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold mb-6">Important Disclaimer</h2>
           <div className="space-y-4 text-slate-700">
             <p>
-              <strong>Hosvi does not provide medical or legal services.</strong>  Hosvi operates as a medical placement coordination network connecting personal injury law firms with independent treatment providers.
- <br />Hosvi does not diagnose, treat, provide medical advice, offer legal counsel, or make treatment recommendations. <br /><br />All medical and legal decisions are made solely between the client and their licensed healthcare providers or attorneys.
-Treatment providers within the Hosvi network are independent entities and are not employees, partners, or agents of Hosvi.
+              <strong>Hosvi does not provide medical or legal services.</strong> Hosvi operates as a medical placement coordination network connecting personal injury law firms with independent treatment providers.
+              <br />
+              Hosvi does not diagnose, treat, provide medical advice, offer legal counsel, or make treatment recommendations.
+              <br />
+              <br />
+              All medical and legal decisions are made solely between the client and their licensed healthcare providers or attorneys. Treatment providers within the Hosvi network are independent entities and are not employees, partners, or agents of Hosvi.
             </p>
             <p>
               Hosvi facilitates introductions and coordination only. Any care, treatment plans, legal strategies, or professional services are the sole responsibility of the respective licensed professionals and the client.
