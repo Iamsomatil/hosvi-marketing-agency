@@ -34,17 +34,17 @@ export default function AboutPage() {
           <div className="grid gap-6 sm:grid-cols-3">
             <div className="rounded-xl border border-slate-200 p-5 bg-slate-50">
               <h3 className="text-[15px] font-semibold mb-2">
-                Speak with our team about joining the Hosvi medical placement network
+                Speak with our team about joining the Hosvi medical placement network.
               </h3>
             </div>
             <div className="rounded-xl border border-slate-200 p-5 bg-slate-50">
               <h3 className="text-[15px] font-semibold mb-2">
-                Structured case placements from verified legal partners
+                Structured case placements from verified legal partners.
               </h3>
             </div>
             <div className="rounded-xl border border-slate-200 p-5 bg-slate-50">
               <h3 className="text-[15px] font-semibold mb-2">
-                Consistent stream of qualified personal injury cases
+                Consistent stream of qualified personal injury cases.
               </h3>
             </div>
           </div>
