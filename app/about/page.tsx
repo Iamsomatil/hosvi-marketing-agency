@@ -29,7 +29,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <h2 className="text-2xl font-bold mb-6">Our Service</h2>
           <p className="text-slate-700 mb-6">
-            Hosvi acts as a referral coordination and case placement broker, connecting personal injury paralegals with treatment providers who accept personal injury cases. Our mission is to streamline the referral process and ensure clients access appropriate treatment quickly and efficiently.
+            Hosvi acts as a referral coordination and case placement broker, connecting personal injury law firms and their legal teams with treatment providers who accept personal injury cases. Our mission is to streamline the referral process and ensure clients access appropriate treatment quickly and efficiently.
           </p>
           <div className="grid gap-6 sm:grid-cols-3">
             <div className="rounded-xl border border-slate-200 p-5 bg-slate-50">
@@ -78,9 +78,9 @@ export default function AboutPage() {
               <div className="flex items-center justify-center w-10 h-10 bg-indigo-600 text-white rounded-full font-bold mb-4">
                 1
               </div>
-              <h3 className="font-semibold mb-3">Paralegal Submits</h3>
+              <h3 className="font-semibold mb-3">Legal Team Submits</h3>
               <p className="text-sm text-slate-700">
-                Personal injury paralegals provide client information and treatment needs through our coordination process.
+                Attorneys and case managers provide client information and treatment needs through our coordination process.
               </p>
             </div>
             <div className="rounded-xl border border-slate-200 p-6">

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import HomePageClient from "./home/HomePageClient";
 
 export const metadata: Metadata = {
-  title: "Hosvi - Referral Coordination for Personal Injury Cases",
+  title: "Hosvi - Medical Placement Coordination for Personal Injury Law Firms",
   description:
-    "Hosvi coordinates referrals between personal injury law firms and treatment provider clinics. We help paralegals place clients with chiropractors and physical therapy clinics that accept personal injury cases.",
+    "Hosvi connects personal injury law firms with trusted treatment providers. We streamline the referral process by placing injured clients with chiropractors and physical therapy clinics experienced in handling personal injury cases.",
   alternates: {
     canonical: "https://hosvi.com",
   },

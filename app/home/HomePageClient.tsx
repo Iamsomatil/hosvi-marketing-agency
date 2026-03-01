@@ -18,13 +18,13 @@ export default function HomePageClient() {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-                Referral Coordination for Personal Injury Cases
+                Medical Placement Coordination Network for Personal Injury Law Firms
               </h1>
               <p className="text-lg sm:text-xl text-blue-100 mb-6 max-w-2xl">
-                Hosvi coordinates referrals between personal injury law firms and
-                treatment provider clinics. We help paralegals place clients with
-                chiropractors and physical therapy clinics that accept personal injury
-                cases.
+                Hosvi connects personal injury law firms with trusted treatment providers.
+                We streamline the referral process by placing injured clients with
+                chiropractors and physical therapy clinics experienced in handling
+                personal injury cases.
               </p>
               <Link
                 href="#contact"
@@ -63,9 +63,9 @@ export default function HomePageClient() {
             {[
               {
                 step: 1,
-                title: "Paralegal Submits Client Info",
+                title: "Legal Team Submits Case Details",
                 description:
-                  "Personal injury paralegals submit their client's information and treatment needs.",
+                  "Attorneys and case managers submit client information and treatment needs.",
               },
               {
                 step: 2,

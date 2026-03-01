@@ -5,7 +5,7 @@ A modern marketing website for Hosvi, a referral coordination platform that conn
 ## Overview
 
 Hosvi streamlines the referral process by:
-- Helping personal injury paralegals quickly place clients with vetted treatment providers
+- Helping personal injury legal teams quickly place clients with vetted treatment providers
 - Enabling clinics to receive consistent patient referrals from law firms
 - Reducing friction in the treatment placement workflow
 

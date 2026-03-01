@@ -13,27 +13,27 @@ const ChatWidget = dynamic(() => import("../components/ChatWidget"), {
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Hosvi - Referral Coordination for Personal Injury Cases",
+  title: "Hosvi - Medical Placement Coordination for Personal Injury Law Firms",
   description:
-    "Hosvi coordinates referrals between personal injury law firms and treatment provider clinics. We help paralegals place clients with chiropractors and physical therapy clinics that accept personal injury cases.",
+    "Hosvi connects personal injury law firms with trusted treatment providers. We streamline the referral process by placing injured clients with chiropractors and physical therapy clinics experienced in handling personal injury cases.",
   keywords: "personal injury referral, case placement, treatment providers",
   metadataBase: new URL("https://hosvi.com"),
   icons: {
     icon: "/hosvi-logo.jpg",
   },
   openGraph: {
-    title: "Hosvi - Referral Coordination for Personal Injury Cases",
+    title: "Hosvi - Medical Placement Coordination for Personal Injury Law Firms",
     description:
-      "Hosvi coordinates referrals between personal injury law firms and treatment provider clinics.",
+      "Medical placement coordination between personal injury law firms and trusted treatment providers.",
     url: "https://hosvi.com",
     siteName: "Hosvi",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hosvi - Referral Coordination for Personal Injury Cases",
+    title: "Hosvi - Medical Placement Coordination for Personal Injury Law Firms",
     description:
-      "Hosvi coordinates referrals between personal injury law firms and treatment provider clinics.",
+      "Medical placement coordination between personal injury law firms and trusted treatment providers.",
   },
 };
 

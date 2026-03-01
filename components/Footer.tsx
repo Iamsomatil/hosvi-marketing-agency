@@ -16,7 +16,7 @@ export default function Footer() {
               <span className="text-2xl font-bold text-white">Hosvi</span>
             </div>
             <p className="text-indigo-400 text-sm max-w-3xl">
-              Hosvi coordinates referrals between personal injury law firms and treatment provider clinics to help paralegals place clients with chiropractors and physical therapy clinics that accept personal injury cases.
+              Hosvi connects personal injury law firms with trusted treatment providers, streamlining referrals and placements with chiropractors and physical therapy clinics experienced in personal injury cases.
             </p>
             <div className="flex space-x-4">
               <a
