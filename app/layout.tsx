@@ -15,7 +15,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Structured Medical Placement Network for Personal Injury Law Firms",
   description:
-    "Hosvi connects personal injury law firms with trusted treatment providers. We streamline the referral process by placing injured clients with chiropractors and physical therapy clinics experienced in handling personal injury cases.",
+    "Structured Medical Placement Network for Personal Injury Law Firms",
   keywords: "personal injury referral, case placement, treatment providers",
   metadataBase: new URL("https://hosvi.com"),
   icons: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Structured Medical Placement Network for Personal Injury Law Firms",
     description:
-      "Medical placement coordination between personal injury law firms and trusted treatment providers.",
+      "Structured Medical Placement Network for Personal Injury Law Firms",
     url: "https://hosvi.com",
     siteName: "Hosvi",
     type: "website",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Structured Medical Placement Network for Personal Injury Law Firms",
     description:
-      "Medical placement coordination between personal injury law firms and trusted treatment providers.",
+      "Structured Medical Placement Network for Personal Injury Law Firms",
   },
 };
 
