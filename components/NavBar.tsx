@@ -9,6 +9,9 @@ export default function NavBar() {
   const [open, setOpen] = useState(false);
 
   const navItems = [
+    { href: "/", label: "Home" },
+    { href: "/law-firm", label: "Law Firm" },
+    { href: "/clinic", label: "Clinic" },
     { href: "/about", label: "About" },
     { href: "/#contact", label: "Contact" },
   ];

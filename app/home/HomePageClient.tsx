@@ -5,6 +5,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ContactSection } from "./ContactSection";
+import ImpactNumbers from "./ImpactNumbers";
 
 export default function HomePageClient() {
   return (
@@ -126,6 +127,8 @@ export default function HomePageClient() {
           </div>
         </div>
       </section>
+
+      <ImpactNumbers />
 
       <ContactSection />
 

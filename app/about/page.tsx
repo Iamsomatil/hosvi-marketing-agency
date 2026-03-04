@@ -71,42 +71,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="border-t border-slate-100">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-          <h2 className="text-2xl font-bold mb-8">How It Works</h2>
-          <div className="grid gap-6 sm:grid-cols-3">
-            <div className="rounded-xl border border-slate-200 p-6">
-              <div className="flex items-center justify-center w-10 h-10 bg-indigo-600 text-white rounded-full font-bold mb-4">
-                1
-              </div>
-              <h3 className="font-semibold mb-3">Legal Team Submits Case</h3>
-              <p className="text-sm text-slate-700">
-                Attorneys and case managers submit client details and treatment requirements.
-              </p>
-            </div>
-            <div className="rounded-xl border border-slate-200 p-6">
-              <div className="flex items-center justify-center w-10 h-10 bg-indigo-600 text-white rounded-full font-bold mb-4">
-                2
-              </div>
-              <h3 className="font-semibold mb-3">Hosvi Manages Placement</h3>
-              <p className="text-sm text-slate-700">
-                We connect the client with a qualified treatment provider in our network.
-              </p>
-            </div>
-            <div className="rounded-xl border border-slate-200 p-6">
-              <div className="flex items-center justify-center w-10 h-10 bg-indigo-600 text-white rounded-full font-bold mb-4">
-                3
-              </div>
-              <h3 className="font-semibold mb-3">Clinic Schedules the Client</h3>
-              <p className="text-sm text-slate-700">
-                The treatment provider contacts the client directly to schedule treatment.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="border-t border-slate-100">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 text-center">
