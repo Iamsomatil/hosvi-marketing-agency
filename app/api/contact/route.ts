@@ -34,7 +34,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, email, phone, message, company, website } =
+    const { name, email, phone, message, company, website, consentToCallsAndSms } =
       await request.json();
 
     // Basic validation
@@ -65,6 +65,13 @@ export async function POST(request: Request) {
       );
     }
 
+    if (String(phone || "").trim() && consentToCallsAndSms !== true) {
+      return NextResponse.json(
+        { error: "Consent to receive calls/SMS is required when providing a phone number." },
+        { status: 400 }
+      );
+    }
+
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
       console.error("Missing RESEND_API_KEY");
@@ -86,6 +93,9 @@ export async function POST(request: Request) {
         <p><strong>Company:</strong> ${company || "Not provided"}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
+        <p><strong>Calls/SMS Consent:</strong> ${
+          consentToCallsAndSms === true ? "Yes" : "No"
+        }</p>
         <p><strong>Message:</strong></p>
         <p>${message}</p>
       `,

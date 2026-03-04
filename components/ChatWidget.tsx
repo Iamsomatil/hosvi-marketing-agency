@@ -185,7 +185,7 @@ export default function ChatWidget() {
               <button
                 type="submit"
                 aria-label="Send message"
-                className="bg-slate-900 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-slate-800 transition disabled:opacity-50"
+                className="bg-cyan-500 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-cyan-600 transition disabled:opacity-50"
                 disabled={isLoading || !input.trim()}
               >
                 Send
@@ -199,7 +199,7 @@ export default function ChatWidget() {
         type="button"
         aria-label="Open chat"
         onClick={() => setIsOpen((open) => !open)}
-        className="mt-3 w-16 h-16 rounded-full text-white shadow-xl flex items-center justify-center text-lg font-semibold transition bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-500 hover:brightness-110">
+        className="mt-3 w-16 h-16 rounded-full text-white shadow-xl flex items-center justify-center text-lg font-semibold transition bg-cyan-500 hover:bg-cyan-600">
         {isOpen ? "−" : "Chat"}
       </button>
     </div>

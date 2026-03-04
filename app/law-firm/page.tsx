@@ -132,7 +132,7 @@ export default function LawFirmPage() {
               </p>
               <Link
                 href="/#contact"
-                className="mt-6 inline-flex items-center px-5 py-3 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white font-medium transition-colors"
+                className="mt-6 inline-flex items-center px-5 py-3 rounded-md bg-cyan-500 hover:bg-cyan-600 text-white font-medium transition-colors"
               >
                 Speak with Hosvi
               </Link>

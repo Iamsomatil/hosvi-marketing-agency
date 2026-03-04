@@ -83,9 +83,9 @@ export default function AboutPage() {
           <div className="mt-6">
             <Link
               href="/#contact"
-              className="inline-flex items-center px-6 py-3 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white font-medium shadow"
+              className="inline-flex items-center px-6 py-3 rounded-md bg-cyan-500 hover:bg-cyan-600 text-white font-medium shadow"
             >
-              Get in Touch
+              Contact Us
             </Link>
           </div>
         </div>

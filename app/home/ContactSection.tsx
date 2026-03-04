@@ -15,6 +15,7 @@ export function ContactSection() {
     email: "",
     phone: "",
     message: "",
+    consentToCallsAndSms: false,
     website: "",
   });
 
@@ -27,10 +28,10 @@ export function ContactSection() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target;
+    const { name, value, type } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: type === "checkbox" ? (e.target as HTMLInputElement).checked : value,
     }));
   };
 
@@ -65,6 +66,7 @@ export function ContactSection() {
         email: "",
         phone: "",
         message: "",
+        consentToCallsAndSms: false,
         website: "",
       });
     } catch (error) {
@@ -178,6 +180,21 @@ export function ContactSection() {
                 />
               </div>
 
+              <div className="flex items-start gap-3">
+                <input
+                  id="consentToCallsAndSms"
+                  type="checkbox"
+                  name="consentToCallsAndSms"
+                  checked={formData.consentToCallsAndSms}
+                  onChange={handleChange}
+                  required={Boolean(formData.phone.trim())}
+                  className="mt-1 h-4 w-4 rounded border-slate-300 text-cyan-600 focus:ring-cyan-500"
+                />
+                <label htmlFor="consentToCallsAndSms" className="text-sm text-slate-700">
+                  I agree to receive calls and SMS messages from Hosvi at the number provided.
+                </label>
+              </div>
+
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-slate-900 mb-2">
                   Message
@@ -211,7 +228,7 @@ export function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 disabled:bg-gray-400 text-white font-semibold rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-lg transition-colors"
               >
                 <Send className="h-4 w-4" />
                 {isSubmitting ? "Sending..." : "Send Message"}

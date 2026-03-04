@@ -43,12 +43,6 @@ export default function NavBar() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/#contact"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
-            >
-              Contact Us
-            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -85,13 +79,6 @@ export default function NavBar() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/#contact"
-              className="block w-full text-center px-3 py-2 rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 mt-3"
-              onClick={() => setOpen(false)}
-            >
-              Contact Us
-            </Link>
           </div>
         </div>
       )}

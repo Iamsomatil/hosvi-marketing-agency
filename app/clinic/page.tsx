@@ -51,10 +51,9 @@ export default function ClinicPage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden border border-white/20 shadow-2xl">
-              {/* TODO: replace with final clinic image */}
               <Image
-                src="/images/clinic/hero-placeholder.svg"
-                alt="Clinic operations placeholder"
+                src="/images/clinic/facility-placeholder.svg"
+                alt="Clinic treatment facility"
                 width={1200}
                 height={800}
                 className="w-full h-auto"
@@ -120,10 +119,9 @@ export default function ClinicPage() {
 
           <div className="space-y-6 lg:sticky lg:top-28">
             <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-lg">
-              {/* TODO: replace with final clinic image */}
               <Image
                 src="/images/clinic/facility-placeholder.svg"
-                alt="Treatment facility placeholder"
+                alt="Treatment facility"
                 width={1200}
                 height={800}
                 className="w-full h-auto"
@@ -139,7 +137,7 @@ export default function ClinicPage() {
               </p>
               <Link
                 href="/#contact"
-                className="mt-6 inline-flex items-center px-5 py-3 rounded-md bg-emerald-600 hover:bg-emerald-700 text-white font-medium transition-colors"
+                className="mt-6 inline-flex items-center px-5 py-3 rounded-md bg-cyan-500 hover:bg-cyan-600 text-white font-medium transition-colors"
               >
                 Join the Network
               </Link>
