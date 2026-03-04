@@ -12,23 +12,85 @@ export default function TermsPage() {
       <section className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
         <h1 className="text-3xl sm:text-4xl font-bold">Terms of Service</h1>
         <p className="mt-4 text-slate-700">
-          By using this website, you agree to these terms. Hosvi provides
-          referral coordination and case placement services only and does not
-          provide medical or legal advice.
+          By using the Hosvi website and services, you agree to the following
+          terms.
         </p>
-        <div className="mt-8 space-y-4 text-slate-700">
-          <p>
-            Information on this site is for general informational purposes. Any
-            treatment or legal guidance must come from licensed professionals.
-          </p>
-          <p>
-            You agree not to misuse the site, attempt unauthorized access, or
-            submit false or misleading information.
-          </p>
-          <p>
-            We may update these terms periodically. Continued use of the site
-            indicates acceptance of the updated terms.
-          </p>
+        <div className="mt-8 space-y-8 text-slate-700">
+          <div className="space-y-2">
+            <h2 className="text-xl font-semibold text-slate-900">
+              SMS Communications
+            </h2>
+            <p>
+              By providing your phone number through forms on our website, you
+              consent to receive SMS messages from Hosvi related to service
+              updates, appointment confirmations, onboarding information, and
+              other relevant communications.
+            </p>
+            <p>Message frequency may vary.</p>
+            <p>Message and data rates may apply.</p>
+            <p>
+              You may opt out of receiving SMS messages at any time by replying
+              STOP. For assistance, reply HELP.
+            </p>
+          </div>
+
+          <div className="space-y-2">
+            <h2 className="text-xl font-semibold text-slate-900">
+              Carrier Disclaimer
+            </h2>
+            <p>Carriers are not liable for delayed or undelivered messages.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h2 className="text-xl font-semibold text-slate-900">
+              Age Requirement
+            </h2>
+            <p>Users must be at least 18 years old to use our services.</p>
+          </div>
+
+          <div className="space-y-2">
+            <h2 className="text-xl font-semibold text-slate-900">
+              Customer Support
+            </h2>
+            <p>
+              If you have any questions about these terms, you may contact us
+              at:
+            </p>
+            <p>
+              <a
+                href="mailto:info@hosvi.com"
+                className="text-indigo-600 hover:text-indigo-700"
+              >
+                info@hosvi.com
+              </a>
+            </p>
+            <p>
+              <a
+                href="https://www.hosvi.com"
+                className="text-indigo-600 hover:text-indigo-700"
+              >
+                https://www.hosvi.com
+              </a>
+            </p>
+          </div>
+
+          <div className="space-y-2">
+            <h2 className="text-xl font-semibold text-slate-900">
+              Privacy Policy
+            </h2>
+            <p>
+              Your use of our services is also governed by our Privacy Policy
+              available at:
+            </p>
+            <p>
+              <a
+                href="https://www.hosvi.com/privacy-policy"
+                className="text-indigo-600 hover:text-indigo-700"
+              >
+                https://www.hosvi.com/privacy-policy
+              </a>
+            </p>
+          </div>
         </div>
       </section>
     </div>

@@ -1767,6 +1767,11 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+.hover\:text-indigo-700:hover {
+  --tw-text-opacity: 1;
+  color: rgb(67 56 202 / var(--tw-text-opacity, 1));
+}
+
 .hover\:shadow-\[0_18px_34px_-20px_rgba\(30\2c 64\2c 175\2c 0\.55\)\]:hover {
   --tw-shadow: 0 18px 34px -20px rgba(30,64,175,0.55);
   --tw-shadow-colored: 0 18px 34px -20px var(--tw-shadow-color);
