@@ -65,7 +65,7 @@ export default function ImpactNumbers() {
                   </div>
                   <div className="mt-3 h-2 rounded-full bg-slate-200 overflow-hidden">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-indigo-600 via-cyan-500 to-emerald-500 transition-all duration-500"
+                      className="h-full rounded-full bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-500 transition-all duration-500"
                       style={{ width: `${metric.value}%` }}
                       aria-label={`${metric.label} ${metric.value}%`}
                     />

@@ -18,18 +18,18 @@ const whatYouGain = [
 export default function LawFirmPage() {
   return (
     <div className="bg-white text-slate-900">
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 to-indigo-900 text-white py-14 sm:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-900 to-cyan-800 text-white py-14 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-cyan-300 font-semibold tracking-wide uppercase text-sm">
+              <p className="text-cyan-100 font-semibold tracking-wide uppercase text-sm">
                 For Personal Injury Law Firms
               </p>
               <h1 className="text-4xl sm:text-5xl font-bold mt-3 leading-tight">
                 Structured medical placement coordination without
                 administrative friction.
               </h1>
-              <p className="mt-4 text-blue-100 text-lg">
+              <p className="mt-4 text-sky-100 text-lg">
                 Hosvi provides structured medical placement coordination for
                 personal injury matters. We connect legal teams with independent
                 treatment providers experienced in handling PI cases and
@@ -39,7 +39,7 @@ export default function LawFirmPage() {
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center px-6 py-3 rounded-md bg-cyan-500 hover:bg-cyan-600 text-white font-semibold transition-colors"
+                  className="inline-flex items-center px-6 py-3 rounded-md bg-cyan-600 hover:bg-cyan-700 text-white font-semibold transition-colors"
                 >
                   Contact Hosvi
                 </Link>
@@ -53,12 +53,14 @@ export default function LawFirmPage() {
             </div>
             <div className="rounded-2xl overflow-hidden border border-white/20 shadow-2xl mx-auto max-w-2xl">
               <Image
-                src="/images/law-firm/hero-placeholder.svg"
+                src="/images/law-firm/team-updated.jpg"
                 alt="Law firm operations"
-                width={1200}
-                height={800}
-                className="w-full h-auto object-contain"
+                width={2200}
+                height={1468}
+                className="w-full h-auto object-cover"
                 priority
+                quality={72}
+                sizes="(min-width: 1024px) 45vw, 100vw"
               />
             </div>
           </div>
@@ -115,14 +117,16 @@ export default function LawFirmPage() {
           <div className="space-y-6 lg:sticky lg:top-28">
             <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-lg mx-auto max-w-xl">
               <Image
-                src="/images/law-firm/team-updated.jpg"
+                src="/images/law-firm/hero-placeholder.png"
                 alt="Law firm team"
-                width={1200}
-                height={800}
+                width={1536}
+                height={1024}
                 className="w-full h-auto object-cover"
+                quality={70}
+                sizes="(min-width: 1024px) 40vw, 100vw"
               />
             </div>
-            <div className="rounded-xl border border-slate-200 bg-gradient-to-br from-indigo-50 to-cyan-50 p-6">
+            <div className="rounded-xl border border-slate-200 bg-gradient-to-br from-blue-50 to-cyan-50 p-6">
               <h3 className="text-xl font-semibold mb-4">
                 Next Step
               </h3>
@@ -132,7 +136,7 @@ export default function LawFirmPage() {
               </p>
               <Link
                 href="/#contact"
-                className="mt-6 inline-flex items-center px-5 py-3 rounded-md bg-cyan-500 hover:bg-cyan-600 text-white font-medium transition-colors"
+                className="mt-6 inline-flex items-center px-5 py-3 rounded-md bg-cyan-600 hover:bg-cyan-700 text-white font-medium transition-colors"
               >
                 Speak with Hosvi
               </Link>

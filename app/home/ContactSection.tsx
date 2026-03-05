@@ -126,7 +126,7 @@ export function ContactSection() {
                   onChange={handleChange}
                   required
                   autoComplete="name"
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
                   placeholder="Your name"
                 />
               </div>
@@ -142,7 +142,7 @@ export function ContactSection() {
                   value={formData.company}
                   onChange={handleChange}
                   autoComplete="organization"
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
                   placeholder="Your company name"
                 />
               </div>
@@ -159,7 +159,7 @@ export function ContactSection() {
                   onChange={handleChange}
                   required
                   autoComplete="email"
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
                   placeholder="your@email.com"
                 />
               </div>
@@ -175,7 +175,7 @@ export function ContactSection() {
                   value={formData.phone}
                   onChange={handleChange}
                   autoComplete="tel"
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
                   placeholder="(555) 123-4567"
                 />
               </div>
@@ -188,7 +188,7 @@ export function ContactSection() {
                   checked={formData.consentToCallsAndSms}
                   onChange={handleChange}
                   required={Boolean(formData.phone.trim())}
-                  className="mt-1 h-4 w-4 rounded border-slate-300 text-cyan-600 focus:ring-cyan-500"
+                  className="mt-1 h-4 w-4 rounded border-slate-300 text-cyan-700 focus:ring-cyan-600"
                 />
                 <label htmlFor="consentToCallsAndSms" className="text-sm text-slate-700">
                   I agree to receive calls and SMS messages from Hosvi at the number provided.
@@ -206,7 +206,7 @@ export function ContactSection() {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
                   placeholder="Tell us about your referral needs..."
                 />
               </div>
@@ -215,8 +215,8 @@ export function ContactSection() {
                 <div
                   className={`p-4 rounded-lg ${
                     submitStatus.success
-                      ? "bg-green-50 text-green-800"
-                      : "bg-red-50 text-red-800"
+                      ? "bg-cyan-50 text-cyan-800"
+                      : "bg-slate-100 text-slate-800"
                   }`}
                   role="status"
                   aria-live="polite"
@@ -228,7 +228,7 @@ export function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-cyan-500 hover:bg-cyan-600 text-white font-semibold rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg transition-colors"
               >
                 <Send className="h-4 w-4" />
                 {isSubmitting ? "Sending..." : "Send Message"}
@@ -246,30 +246,30 @@ export function ContactSection() {
           >
             <div className="space-y-4">
               <div className="flex items-start gap-4">
-                <Mail className="h-6 w-6 text-indigo-600 mt-1" />
+                <Mail className="h-6 w-6 text-cyan-700 mt-1" />
                 <div>
                   <h3 className="font-semibold text-slate-900">Email</h3>
-                  <a href="mailto:info@hosvi.com" className="text-slate-600 hover:text-indigo-600">
+                  <a href="mailto:info@hosvi.com" className="text-slate-600 hover:text-cyan-700">
                     info@hosvi.com
                   </a>
-                  <a href="mailto:contact@hosvi.com" className="block text-slate-600 hover:text-indigo-600">
+                  <a href="mailto:contact@hosvi.com" className="block text-slate-600 hover:text-cyan-700">
                     contact@hosvi.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <Phone className="h-6 w-6 text-indigo-600 mt-1" />
+                <Phone className="h-6 w-6 text-cyan-700 mt-1" />
                 <div>
                   <h3 className="font-semibold text-slate-900">Phone</h3>
-                  <a href="tel:+17542070982" className="text-slate-600 hover:text-indigo-600">
+                  <a href="tel:+17542070982" className="text-slate-600 hover:text-cyan-700">
                     (754) 207-0982
                   </a>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <MapPin className="h-6 w-6 text-indigo-600 mt-1" />
+                <MapPin className="h-6 w-6 text-cyan-700 mt-1" />
                 <div>
                   <h3 className="font-semibold text-slate-900">Address</h3>
                   <p className="text-slate-600">

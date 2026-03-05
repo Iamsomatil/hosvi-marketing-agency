@@ -106,7 +106,7 @@ export default function PrivacyPage() {
               Website:{" "}
               <a
                 href="https://www.hosvi.com"
-                className="text-indigo-600 hover:text-indigo-700"
+                className="text-cyan-700 hover:text-cyan-800"
               >
                 https://www.hosvi.com
               </a>
@@ -115,7 +115,7 @@ export default function PrivacyPage() {
               Email:{" "}
               <a
                 href="mailto:info@hosvi.com"
-                className="text-indigo-600 hover:text-indigo-700"
+                className="text-cyan-700 hover:text-cyan-800"
               >
                 info@hosvi.com
               </a>

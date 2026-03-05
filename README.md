@@ -93,7 +93,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 ├── lib/
 │   └── utils.ts             # Utility functions
 ├── public/
-│   ├── hero-hosvi.png       # Hero section image
+│   ├── hero-hosvi.jpg       # Hero section image
 │   ├── testimonial-*.png    # Testimonial images
 │   └── robots.txt
 ├── package.json

@@ -18,18 +18,18 @@ const whatYouGain = [
 export default function ClinicPage() {
   return (
     <div className="bg-white text-slate-900">
-      <section className="relative overflow-hidden bg-gradient-to-br from-emerald-900 via-cyan-900 to-blue-900 text-white py-14 sm:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-900 to-cyan-800 text-white py-14 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="text-cyan-200 font-semibold tracking-wide uppercase text-sm">
+              <p className="text-cyan-100 font-semibold tracking-wide uppercase text-sm">
                 For Treatment Providers
               </p>
               <h1 className="text-4xl sm:text-5xl font-bold mt-3 leading-tight">
                 Structured case placement coordination for chiropractors and
                 physical therapy clinics.
               </h1>
-              <p className="mt-4 text-cyan-50 text-lg">
+              <p className="mt-4 text-sky-100 text-lg">
                 Hosvi connects independent treatment providers with personal
                 injury law firms seeking structured medical placement
                 coordination. We facilitate introductions and manage the
@@ -38,7 +38,7 @@ export default function ClinicPage() {
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
                   href="/#contact"
-                  className="inline-flex items-center px-6 py-3 rounded-md bg-cyan-500 hover:bg-cyan-600 text-white font-semibold transition-colors"
+                  className="inline-flex items-center px-6 py-3 rounded-md bg-cyan-600 hover:bg-cyan-700 text-white font-semibold transition-colors"
                 >
                   Contact Hosvi
                 </Link>
@@ -52,12 +52,14 @@ export default function ClinicPage() {
             </div>
             <div className="rounded-2xl overflow-hidden border border-white/20 shadow-2xl">
               <Image
-                src="/images/clinic/facility-placeholder.svg"
+                src="/images/clinic/hero-placeholder.jpg"
                 alt="Clinic treatment facility"
-                width={1200}
-                height={800}
+                width={3840}
+                height={5760}
                 className="w-full h-auto"
                 priority
+                quality={72}
+                sizes="(min-width: 1024px) 50vw, 100vw"
               />
             </div>
           </div>
@@ -120,14 +122,16 @@ export default function ClinicPage() {
           <div className="space-y-6 lg:sticky lg:top-28">
             <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-lg">
               <Image
-                src="/images/clinic/facility-placeholder.svg"
+                src="/images/clinic/facility-placeholder.jpg"
                 alt="Treatment facility"
-                width={1200}
-                height={800}
+                width={5464}
+                height={3643}
                 className="w-full h-auto"
+                quality={70}
+                sizes="(min-width: 1024px) 40vw, 100vw"
               />
             </div>
-            <div className="rounded-xl border border-slate-200 bg-gradient-to-br from-emerald-50 to-cyan-50 p-6">
+            <div className="rounded-xl border border-slate-200 bg-gradient-to-br from-blue-50 to-cyan-50 p-6">
               <h3 className="text-xl font-semibold mb-4">
                 Next Step
               </h3>
@@ -137,7 +141,7 @@ export default function ClinicPage() {
               </p>
               <Link
                 href="/#contact"
-                className="mt-6 inline-flex items-center px-5 py-3 rounded-md bg-cyan-500 hover:bg-cyan-600 text-white font-medium transition-colors"
+                className="mt-6 inline-flex items-center px-5 py-3 rounded-md bg-cyan-600 hover:bg-cyan-700 text-white font-medium transition-colors"
               >
                 Join the Network
               </Link>

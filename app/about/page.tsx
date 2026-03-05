@@ -52,7 +52,7 @@ export default function AboutPage() {
       </section>
 
       {/* Important Disclaimer */}
-      <section className="border-t border-slate-100 bg-amber-50">
+      <section className="border-t border-slate-100 bg-cyan-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <h2 className="text-2xl font-bold mb-6">Important Disclaimer</h2>
           <div className="space-y-4 text-slate-700">
@@ -83,7 +83,7 @@ export default function AboutPage() {
           <div className="mt-6">
             <Link
               href="/#contact"
-              className="inline-flex items-center px-6 py-3 rounded-md bg-cyan-500 hover:bg-cyan-600 text-white font-medium shadow"
+              className="inline-flex items-center px-6 py-3 rounded-md bg-cyan-600 hover:bg-cyan-700 text-white font-medium shadow"
             >
               Contact Us
             </Link>

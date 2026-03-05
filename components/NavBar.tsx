@@ -17,7 +17,7 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white border-b border-slate-200">
+    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -38,7 +38,7 @@ export default function NavBar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-slate-700 hover:text-indigo-600 transition"
+                className="text-slate-700 hover:text-cyan-700 transition"
               >
                 {item.label}
               </Link>
@@ -73,7 +73,7 @@ export default function NavBar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-indigo-600 hover:bg-slate-50"
+                className="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:text-cyan-700 hover:bg-cyan-50"
                 onClick={() => setOpen(false)}
               >
                 {item.label}

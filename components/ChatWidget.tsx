@@ -129,7 +129,7 @@ export default function ChatWidget() {
           {/* Chat bubble tail */}
           <div className="absolute bottom-0 right-12 w-0 h-0 border-l-[24px] border-l-transparent border-r-[24px] border-r-transparent border-t-[24px] border-t-white/85 transform translate-y-full"></div>
           
-          <div className="flex items-center justify-between px-4 py-3 text-white bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-500 rounded-t-2xl">
+          <div className="flex items-center justify-between px-4 py-3 text-white bg-gradient-to-r from-slate-900 via-blue-700 to-cyan-600 rounded-t-2xl">
             <div className="text-sm font-semibold">Ask Hosvi</div>
             <button
               type="button"
@@ -152,7 +152,7 @@ export default function ChatWidget() {
                   <div
                     className={`relative max-w-[80%] px-4 py-2.5 text-sm leading-relaxed shadow-sm ${
                       isUser
-                        ? "bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-500 text-white rounded-2xl rounded-br-md after:content-[''] after:absolute after:-right-2 after:bottom-2 after:border-y-[8px] after:border-l-[12px] after:border-y-transparent after:border-l-cyan-500"
+                        ? "bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-600 text-white rounded-2xl rounded-br-md after:content-[''] after:absolute after:-right-2 after:bottom-2 after:border-y-[8px] after:border-l-[12px] after:border-y-transparent after:border-l-cyan-600"
                         : "bg-white text-slate-900 border border-slate-200 rounded-2xl rounded-bl-md after:content-[''] after:absolute after:-left-2 after:bottom-2 after:border-y-[8px] after:border-r-[12px] after:border-y-transparent after:border-r-slate-200 before:content-[''] before:absolute before:-left-[11px] before:bottom-[9px] before:border-y-[7px] before:border-r-[10px] before:border-y-transparent before:border-r-white"
                     }`}
                   >
@@ -185,7 +185,7 @@ export default function ChatWidget() {
               <button
                 type="submit"
                 aria-label="Send message"
-                className="bg-cyan-500 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-cyan-600 transition disabled:opacity-50"
+                className="bg-cyan-600 text-white px-4 py-2 rounded-xl text-sm font-semibold hover:bg-cyan-700 transition disabled:opacity-50"
                 disabled={isLoading || !input.trim()}
               >
                 Send
@@ -199,7 +199,7 @@ export default function ChatWidget() {
         type="button"
         aria-label="Open chat"
         onClick={() => setIsOpen((open) => !open)}
-        className="mt-3 w-16 h-16 rounded-full text-white shadow-xl flex items-center justify-center text-lg font-semibold transition bg-cyan-500 hover:bg-cyan-600">
+        className="mt-3 w-16 h-16 rounded-full text-white shadow-xl flex items-center justify-center text-lg font-semibold transition bg-cyan-600 hover:bg-cyan-700">
         {isOpen ? "−" : "Chat"}
       </button>
     </div>
