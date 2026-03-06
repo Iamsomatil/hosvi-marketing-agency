@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import Link from "next/link";
 
 export function ContactSection() {
   const HOSVI_ADDRESS = "6421 N. Florida Ave Suite D-1130, Tampa, FL 33604";
@@ -187,13 +188,30 @@ export function ContactSection() {
                   name="consentToCallsAndSms"
                   checked={formData.consentToCallsAndSms}
                   onChange={handleChange}
-                  required={Boolean(formData.phone.trim())}
                   className="mt-1 h-4 w-4 rounded border-slate-300 text-cyan-700 focus:ring-cyan-600"
                 />
                 <label htmlFor="consentToCallsAndSms" className="text-sm text-slate-700">
-                  I agree to receive calls and SMS messages from Hosvi at the number provided.
+                  I consent to receive SMS messages from Hosvi regarding referral coordination, appointment scheduling, onboarding instructions, and service updates. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance.
                 </label>
               </div>
+
+              <p className="text-sm text-slate-700">
+                By submitting this form, you agree to our{" "}
+                <Link
+                  href="/privacy-policy"
+                  className="text-cyan-700 hover:text-cyan-800 underline"
+                >
+                  Privacy Policy
+                </Link>{" "}
+                and{" "}
+                <Link
+                  href="/terms-of-service"
+                  className="text-cyan-700 hover:text-cyan-800 underline"
+                >
+                  Terms of Service
+                </Link>
+                .
+              </p>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-slate-900 mb-2">

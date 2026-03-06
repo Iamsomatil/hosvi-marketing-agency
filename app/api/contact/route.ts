@@ -65,13 +65,6 @@ export async function POST(request: Request) {
       );
     }
 
-    if (String(phone || "").trim() && consentToCallsAndSms !== true) {
-      return NextResponse.json(
-        { error: "Consent to receive calls/SMS is required when providing a phone number." },
-        { status: 400 }
-      );
-    }
-
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
       console.error("Missing RESEND_API_KEY");

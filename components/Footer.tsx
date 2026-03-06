@@ -66,7 +66,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   className="text-cyan-300 hover:text-cyan-200 text-sm"
                 >
                   Contact
@@ -83,7 +83,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <Link
-                  href="/privacy"
+                  href="/privacy-policy"
                   className="text-cyan-300 hover:text-cyan-200 text-sm"
                 >
                   Privacy Policy
@@ -91,7 +91,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/terms"
+                  href="/terms-of-service"
                   className="text-cyan-300 hover:text-cyan-200 text-sm"
                 >
                   Terms of Service

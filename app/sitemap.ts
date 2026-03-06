@@ -3,7 +3,14 @@ import { MetadataRoute } from 'next'
 const URL = "https://hosvi.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["/", "/about", "/privacy", "/terms", "/cookies"];
+  const routes = [
+    "/",
+    "/about",
+    "/contact",
+    "/privacy-policy",
+    "/terms-of-service",
+    "/cookies",
+  ];
 
   return routes.map((route) => ({
     url: `${URL}${route}`,
