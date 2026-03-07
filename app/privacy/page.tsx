@@ -119,6 +119,13 @@ export default function PrivacyPage() {
               >
                 info@hosvi.com
               </a>
+              {" "}or{" "}
+              <a
+                href="mailto:support@hosvi.com"
+                className="text-cyan-700 hover:text-cyan-800"
+              >
+                support@hosvi.com
+              </a>
             </p>
           </div>
         </div>

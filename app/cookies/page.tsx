@@ -24,7 +24,7 @@ export default function CookiesPage() {
             cookies may impact some site features.
           </p>
           <p>
-            For questions, contact us at info@hosvi.com.
+            For questions, contact us at info@hosvi.com or support@hosvi.com.
           </p>
         </div>
       </section>

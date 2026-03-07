@@ -1,8 +1,8 @@
-// File: /Users/pixelforge/Desktop/Projects/hosvi-marketing-agency/app/contact/page.tsx
-import * as entry from '../../../../app/contact/page.js'
+// File: /Users/pixelforge/Desktop/Projects/hosvi-marketing-agency/app/about/page.tsx
+import * as entry from '../../../../app/about/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
-type TEntry = typeof import('../../../../app/contact/page.js')
+type TEntry = typeof import('../../../../app/about/page.js')
 
 // Check that the entry is a valid entry
 checkFields<Diff<{

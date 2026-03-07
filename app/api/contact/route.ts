@@ -113,7 +113,7 @@ export async function POST(request: Request) {
         <p><strong>Company:</strong> ${company || "Not provided"}</p>
         <p><strong>Your message:</strong></p>
         <p>${message}</p>
-        <p>If you have any urgent questions, feel free to call us at (754) 207-0982.</p>
+        <p>If you have any urgent questions, feel free to call us at +1 (754) 310-5950.</p>
         <p>Best regards,<br/>The Hosvi Team</p>
       `,
     });

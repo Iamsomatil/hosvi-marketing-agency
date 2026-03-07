@@ -3,10 +3,22 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function NavBar() {
   const [open, setOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setHasScrolled(window.scrollY > 0);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { href: "/", label: "Home" },
@@ -17,7 +29,13 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+    <nav
+      className={`sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 overflow-hidden transition-all duration-300 ${
+        hasScrolled
+          ? "-translate-y-full opacity-0 pointer-events-none max-h-0 border-transparent"
+          : "translate-y-0 opacity-100 max-h-40"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}

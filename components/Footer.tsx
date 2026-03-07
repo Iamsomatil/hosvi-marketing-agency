@@ -131,14 +131,21 @@ export default function Footer() {
                 >
                   contact@hosvi.com
                 </a>
+                {" "}|{" "}
+                <a
+                  href="mailto:support@hosvi.com"
+                  className="text-cyan-300 hover:text-cyan-200"
+                >
+                  support@hosvi.com
+                </a>
               </p>
               <p className="!text-cyan-300">
                 <span className="!text-cyan-300">Phone:</span>{" "}
                 <a
-                  href="tel:+17542070982"
+                  href="tel:+17543105950"
                   className="text-cyan-300 hover:text-cyan-200"
                 >
-                  (754) 207-0982
+                  +1 (754) 310-5950
                 </a>
               </p>
             </address>

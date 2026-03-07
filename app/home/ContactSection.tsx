@@ -273,6 +273,9 @@ export function ContactSection() {
                   <a href="mailto:contact@hosvi.com" className="block text-slate-600 hover:text-cyan-700">
                     contact@hosvi.com
                   </a>
+                  <a href="mailto:support@hosvi.com" className="block text-slate-600 hover:text-cyan-700">
+                    support@hosvi.com
+                  </a>
                 </div>
               </div>
 
@@ -280,8 +283,8 @@ export function ContactSection() {
                 <Phone className="h-6 w-6 text-cyan-700 mt-1" />
                 <div>
                   <h3 className="font-semibold text-slate-900">Phone</h3>
-                  <a href="tel:+17542070982" className="text-slate-600 hover:text-cyan-700">
-                    (754) 207-0982
+                  <a href="tel:+17543105950" className="text-slate-600 hover:text-cyan-700">
+                    +1 (754) 310-5950
                   </a>
                 </div>
               </div>
