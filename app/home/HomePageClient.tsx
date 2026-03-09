@@ -22,7 +22,7 @@ export default function HomePageClient() {
                 Medical Placement For Personal Injury Law Firms
               </h1>
               <p className="text-lg sm:text-xl text-sky-100 mb-6 max-w-2xl">
-                Hosvi connects personal injury law firms with trusted treatment providers and manages the placement process from referral to scheduling. Injured clients are matched quickly with chiropractors and physical therapy clinics experienced in personal injury care.
+                Hosvi connects personal injury law firms with trusted treatment providers and manages the placement process from case placement to scheduling. Injured clients are matched quickly with chiropractors and physical therapy clinics experienced in personal injury care.
               </p>
               <Link
                 href="#contact"
@@ -41,7 +41,7 @@ export default function HomePageClient() {
             >
               <Image
                 src="/hero-hosvi.jpg"
-                alt="Hosvi - Referral Coordination Platform"
+                alt="Hosvi - Case Placement Coordination Platform"
                 width={1024}
                 height={1024}
                 priority
@@ -140,7 +140,7 @@ export default function HomePageClient() {
             Ready to Partner with Hosvi?
           </h2>
           <p className="text-lg text-sky-100 mb-8 max-w-2xl mx-auto">
-            Contact us to learn how we can help coordinate referrals for your
+            Contact us to learn how we can help coordinate case placements for your
             organization.
           </p>
           <Link

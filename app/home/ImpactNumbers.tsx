@@ -10,7 +10,7 @@ const circleMetrics = [
 ];
 
 const barMetrics = [
-  { label: "Referral Intake-to-Placement Rate", value: 93 },
+  { label: "Case Placement Intake-to-Placement Rate", value: 93 },
   { label: "On-Time Initial Scheduling", value: 89 },
   { label: "Partner Retention", value: 91 },
 ];

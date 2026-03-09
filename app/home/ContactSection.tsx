@@ -191,7 +191,7 @@ export function ContactSection() {
                   className="mt-1 h-4 w-4 rounded border-slate-300 text-cyan-700 focus:ring-cyan-600"
                 />
                 <label htmlFor="consentToCallsAndSms" className="text-sm text-slate-700">
-                  I consent to receive SMS messages from Hosvi regarding referral coordination, appointment scheduling, onboarding instructions, and service updates. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance.
+                  I consent to receive SMS messages from Hosvi regarding case placement coordination, appointment scheduling, onboarding instructions, and service updates. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance.
                 </label>
               </div>
 
@@ -225,7 +225,7 @@ export function ContactSection() {
                   required
                   rows={4}
                   className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
-                  placeholder="Tell us about your referral needs..."
+                  placeholder="Tell us about your case placement needs..."
                 />
               </div>
 

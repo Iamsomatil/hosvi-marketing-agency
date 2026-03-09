@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     canonical: "https://hosvi.com",
   },
   openGraph: {
-    title: "Hosvi - Referral Coordination for Personal Injury Cases",
+    title: "Hosvi - Case Placement Coordination for Personal Injury Cases",
     description:
       "Structured Medical Placement Network for Personal Injury Law Firms",
     url: "https://hosvi.com",
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hosvi - Referral Coordination for Personal Injury Cases",
+    title: "Hosvi - Case Placement Coordination for Personal Injury Cases",
     description:
-      "Referral coordination between personal injury law firms and treatment provider clinics.",
+      "Case placement coordination between personal injury law firms and treatment provider clinics.",
   },
 };
 

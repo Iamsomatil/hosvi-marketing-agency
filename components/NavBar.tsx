@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 export default function NavBar() {
   const [open, setOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const shouldHideNav = hasScrolled && !open;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,10 +31,12 @@ export default function NavBar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 overflow-hidden transition-all duration-300 ${
-        hasScrolled
+      className={`sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 transition-all duration-300 ${
+        shouldHideNav
           ? "-translate-y-full opacity-0 pointer-events-none max-h-0 border-transparent"
-          : "translate-y-0 opacity-100 max-h-40"
+          : `translate-y-0 opacity-100 ${
+              open ? "max-h-[30rem] overflow-visible" : "max-h-40 overflow-hidden"
+            }`
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
