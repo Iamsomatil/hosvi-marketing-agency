@@ -51,7 +51,7 @@ export default function PrivacyPolicyPage() {
             <p>Message frequency may vary. Message and data rates may apply.</p>
             <p>You may opt out at any time by replying STOP. For assistance, reply HELP.</p>
             <p className="font-medium mt-2">
-              Mobile information will not be shared with third parties for marketing purposes.
+              No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties.
             </p>
           </div>
 

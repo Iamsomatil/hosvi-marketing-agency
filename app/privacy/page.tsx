@@ -55,6 +55,9 @@ export default function PrivacyPage() {
               You can opt out of SMS messages at any time by replying STOP. For
               assistance, reply HELP.
             </p>
+            <p className="font-medium mt-2">
+              No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Text messaging originator opt-in data and consent will not be shared with any third parties.
+            </p>
           </div>
 
           <div className="space-y-2">

@@ -26,6 +26,10 @@ export default function TermsPage() {
               updates, appointment confirmations, onboarding information, and
               other relevant communications.
             </p>
+            <p>
+              SMS use cases include conversational customer support, appointment
+              coordination, onboarding updates, and service notifications.
+            </p>
             <p>Message frequency may vary.</p>
             <p>Message and data rates may apply.</p>
             <p>

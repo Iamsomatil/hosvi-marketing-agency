@@ -92,6 +92,7 @@ export function ContactSection() {
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Have questions about medical placement? Contact our team.
           </p>
+          <p className="mt-3 text-sm font-medium text-slate-700">Business Name: Hosvi LLC</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -191,12 +192,13 @@ export function ContactSection() {
                   className="mt-1 h-4 w-4 rounded border-slate-300 text-cyan-700 focus:ring-cyan-600"
                 />
                 <label htmlFor="consentToCallsAndSms" className="text-sm text-slate-700">
-                  I agree to receive SMS messages from Hosvi LLC regarding case placement coordination, appointment scheduling, onboarding instructions, and service updates.
+                  By checking this box, I consent to receive conversational and service-related SMS messages from Hosvi LLC regarding case placement coordination, appointment scheduling, onboarding instructions, and account or service updates.
                 </label>
               </div>
 
               <div className="text-sm text-slate-700 space-y-2">
                 <p>Message frequency may vary. Message and data rates may apply. Reply STOP to opt out. Reply HELP for assistance.</p>
+                <p>SMS consent is optional and is not a condition of purchase.</p>
                 <p>
                   By submitting this form, you agree to our{" "}
                   <Link

@@ -23,6 +23,9 @@ export default function TermsOfServicePage() {
             <p>
               By providing your phone number and opting in, you consent to receive SMS messages from Hosvi LLC regarding case placement coordination, appointment scheduling, onboarding instructions, and service updates.
             </p>
+            <p>
+              SMS use cases include conversational customer support, appointment coordination, onboarding updates, and service notifications.
+            </p>
             <p>Message frequency may vary. Message and data rates may apply.</p>
             <p>Reply STOP to unsubscribe. Reply HELP for help.</p>
             <p>Carriers are not liable for delayed or undelivered messages.</p>
