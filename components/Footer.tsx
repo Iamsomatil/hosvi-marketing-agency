@@ -155,7 +155,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-slate-800">
           <p className="text-cyan-300 text-sm text-center">
-            &copy; {currentYear} Hosvi. All rights reserved.
+            &copy; {currentYear} Hosvi LLC. All rights reserved.
           </p>
         </div>
       </div>

@@ -1,0 +1,1 @@
+"use strict";exports.id=366,exports.ids=[366],exports.modules={93366:(e,t,s)=>{s.r(t),s.d(t,{default:()=>r});let r=(0,s(68570).createProxy)(String.raw`/Users/pixelforge/Desktop/Projects/hosvi-marketing-agency/components/ChatWidget.tsx#default`)}};

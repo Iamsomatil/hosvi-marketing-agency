@@ -191,27 +191,30 @@ export function ContactSection() {
                   className="mt-1 h-4 w-4 rounded border-slate-300 text-cyan-700 focus:ring-cyan-600"
                 />
                 <label htmlFor="consentToCallsAndSms" className="text-sm text-slate-700">
-                  I consent to receive SMS messages from Hosvi regarding case placement coordination, appointment scheduling, onboarding instructions, and service updates. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out or HELP for assistance.
+                  I agree to receive SMS messages from Hosvi LLC regarding case placement coordination, appointment scheduling, onboarding instructions, and service updates.
                 </label>
               </div>
 
-              <p className="text-sm text-slate-700">
-                By submitting this form, you agree to our{" "}
-                <Link
-                  href="/privacy-policy"
-                  className="text-cyan-700 hover:text-cyan-800 underline"
-                >
-                  Privacy Policy
-                </Link>{" "}
-                and{" "}
-                <Link
-                  href="/terms-of-service"
-                  className="text-cyan-700 hover:text-cyan-800 underline"
-                >
-                  Terms of Service
-                </Link>
-                .
-              </p>
+              <div className="text-sm text-slate-700 space-y-2">
+                <p>Message frequency may vary. Message and data rates may apply. Reply STOP to opt out. Reply HELP for assistance.</p>
+                <p>
+                  By submitting this form, you agree to our{" "}
+                  <Link
+                    href="/privacy-policy"
+                    className="text-cyan-700 hover:text-cyan-800 underline"
+                  >
+                    Privacy Policy
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/terms-of-service"
+                    className="text-cyan-700 hover:text-cyan-800 underline"
+                  >
+                    Terms of Service
+                  </Link>
+                  .
+                </p>
+              </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-slate-900 mb-2">
@@ -243,14 +246,19 @@ export function ContactSection() {
                 </div>
               )}
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg transition-colors"
-              >
-                <Send className="h-4 w-4" />
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </button>
+              <div className="flex flex-col gap-2">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg transition-colors"
+                >
+                  <Send className="h-4 w-4" />
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                </button>
+                <p className="text-xs text-slate-500 text-center">
+                  Consent is not a condition of purchase.
+                </p>
+              </div>
             </form>
           </motion.div>
 
