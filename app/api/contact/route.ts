@@ -4,6 +4,10 @@ import { Resend } from "resend";
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 10;
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const RECAPTCHA_VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify";
+const CONTACT_RECIPIENT_EMAIL =
+  process.env.CONTACT_RECIPIENT_EMAIL || "samson@hosvi.com";
+const CONTACT_SENDER_EMAIL = process.env.CONTACT_SENDER_EMAIL || "forms@hosvi.com";
 
 const getClientIp = (request: Request) =>
   request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
@@ -24,6 +28,71 @@ const isRateLimited = (ip: string) => {
   return false;
 };
 
+const verifyRecaptcha = async (token: string, ip: string) => {
+  const secret = process.env.RECAPTCHA_SECRET_KEY;
+  if (!secret) {
+    console.error("Missing RECAPTCHA_SECRET_KEY");
+    return {
+      ok: false,
+      status: 503,
+      message: "Form verification is unavailable. Please try again later.",
+    };
+  }
+
+  const body = new URLSearchParams({
+    secret,
+    response: token,
+  });
+
+  if (ip && ip !== "unknown") {
+    body.append("remoteip", ip);
+  }
+
+  try {
+    const response = await fetch(RECAPTCHA_VERIFY_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: body.toString(),
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      console.error("reCAPTCHA verification request failed:", response.status);
+      return {
+        ok: false,
+        status: 502,
+        message: "Captcha verification failed. Please try again.",
+      };
+    }
+
+    const result = (await response.json()) as {
+      success?: boolean;
+      hostname?: string;
+      "error-codes"?: string[];
+    };
+
+    if (!result.success) {
+      console.error("reCAPTCHA rejected submission:", result["error-codes"]);
+      return {
+        ok: false,
+        status: 400,
+        message: "Captcha verification failed. Please try again.",
+      };
+    }
+
+    return { ok: true, status: 200, message: "verified" };
+  } catch (error) {
+    console.error("reCAPTCHA verification error:", error);
+    return {
+      ok: false,
+      status: 502,
+      message: "Captcha verification failed. Please try again.",
+    };
+  }
+};
+
 export async function POST(request: Request) {
   try {
     const ip = getClientIp(request);
@@ -34,13 +103,22 @@ export async function POST(request: Request) {
       );
     }
 
-    const { name, email, phone, message, company, website, consentToCallsAndSms } =
+    const {
+      name,
+      email,
+      phone,
+      message,
+      company,
+      website,
+      consentToCallsAndSms,
+      captchaToken,
+    } =
       await request.json();
 
     // Basic validation
-    if (!name || !email || !message) {
+    if (!name || !email || !message || !captchaToken) {
       return NextResponse.json(
-        { error: "Name, email, and message are required" },
+        { error: "Name, email, message, and captcha verification are required" },
         { status: 400 }
       );
     }
@@ -65,6 +143,14 @@ export async function POST(request: Request) {
       );
     }
 
+    const recaptchaResult = await verifyRecaptcha(String(captchaToken), ip);
+    if (!recaptchaResult.ok) {
+      return NextResponse.json(
+        { error: recaptchaResult.message },
+        { status: recaptchaResult.status }
+      );
+    }
+
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
       console.error("Missing RESEND_API_KEY");
@@ -77,8 +163,8 @@ export async function POST(request: Request) {
 
     // Send email to admin
     const { data: adminEmail, error: adminError } = await resend.emails.send({
-      from: "Hosvi Contact <contact@hosvi.com>", // Replace with your domain
-      to: "admin@hosvi.com", // Replace with your admin email
+      from: `Hosvi Contact <${CONTACT_SENDER_EMAIL}>`,
+      to: CONTACT_RECIPIENT_EMAIL,
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -104,7 +190,7 @@ export async function POST(request: Request) {
 
     // Send confirmation email to user
     const { data: userEmail, error: userError } = await resend.emails.send({
-      from: "Hosvi <no-reply@hosvi.com>", // Replace with your domain
+      from: `Hosvi <${CONTACT_SENDER_EMAIL}>`,
       to: email,
       subject: "Thank you for contacting Hosvi",
       html: `

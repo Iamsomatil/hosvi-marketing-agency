@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import OpenAI from "openai";
 import { NextResponse } from "next/server";
 
 type ChatMessage = {
@@ -6,11 +6,12 @@ type ChatMessage = {
   content: string;
 };
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
-
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 30;
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const openai = process.env.OPENAI_API_KEY
+  ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+  : null;
 
 const getClientIp = (request: Request) =>
   request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
@@ -51,6 +52,13 @@ Tone: Professional, friendly, and solution-oriented.`;
 
 export async function POST(request: Request) {
   try {
+    if (!openai) {
+      return NextResponse.json(
+        { error: "Chat service is not configured" },
+        { status: 500 }
+      );
+    }
+
     const ip = getClientIp(request);
     if (isRateLimited(ip)) {
       return NextResponse.json(
@@ -69,34 +77,21 @@ export async function POST(request: Request) {
       );
     }
 
-    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
-
-    // Convert messages to Gemini format
-    const geminiMessages = messages.map((msg) => ({
-      role: msg.role === "user" ? "user" : "model",
-      parts: [{ text: msg.content }],
-    }));
-
-    // Filter history to only include valid pairs (must start with "user")
-    // Find the first user message
-    const firstUserIndex = geminiMessages.findIndex((m) => m.role === "user");
-    const validHistory = firstUserIndex >= 0 ? geminiMessages.slice(0, -1).slice(firstUserIndex) : [];
-
-    const chat = model.startChat({
-      history: validHistory,
-      generationConfig: {
-        maxOutputTokens: 500,
-        temperature: 0.7,
-      },
-      systemInstruction: SYSTEM_PROMPT,
+    const response = await openai.chat.completions.create({
+      model: "gpt-4.1-mini",
+      messages: [
+        { role: "developer", content: SYSTEM_PROMPT },
+        ...messages.map((message) => ({
+          role: message.role,
+          content: message.content,
+        })),
+      ],
+      max_tokens: 500,
+      temperature: 0.7,
     });
 
-    // Send only the last user message
-    const lastMessage = geminiMessages[geminiMessages.length - 1];
-    const response = await chat.sendMessage(lastMessage.parts[0].text);
-
     const reply =
-      response.response.text() ||
+      response.choices[0]?.message?.content?.trim() ||
       "Sorry, I couldn't generate a response. Please try again.";
 
     return NextResponse.json({ reply });

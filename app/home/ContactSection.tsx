@@ -1,14 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import Link from "next/link";
+import ReCAPTCHA from "react-google-recaptcha";
+
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "";
 
 export function ContactSection() {
   const HOSVI_ADDRESS = "6421 N. Florida Ave Suite D-1130, Tampa, FL 33604";
   const DEFAULT_ZOOM = 15;
   const mapQuery = encodeURIComponent(HOSVI_ADDRESS);
+  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -25,6 +29,7 @@ export function ContactSection() {
     success: boolean;
     message: string;
   } | null>(null);
+  const [captchaToken, setCaptchaToken] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -38,6 +43,14 @@ export function ContactSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!captchaToken) {
+      setSubmitStatus({
+        success: false,
+        message: "Please complete the reCAPTCHA challenge before submitting.",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus(null);
 
@@ -47,7 +60,10 @@ export function ContactSection() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          captchaToken,
+        }),
       });
 
       const data = await response.json();
@@ -70,6 +86,8 @@ export function ContactSection() {
         consentToCallsAndSms: false,
         website: "",
       });
+      setCaptchaToken("");
+      recaptchaRef.current?.reset();
     } catch (error) {
       console.error("Form submission error:", error);
       setSubmitStatus({
@@ -79,6 +97,8 @@ export function ContactSection() {
             ? error.message
             : "Something went wrong. Please try again later.",
       });
+      setCaptchaToken("");
+      recaptchaRef.current?.reset();
     } finally {
       setIsSubmitting(false);
     }
@@ -234,6 +254,42 @@ export function ContactSection() {
                 />
               </div>
 
+              <div className="space-y-2">
+                {SITE_KEY ? (
+                  <div className="overflow-x-auto">
+                    <ReCAPTCHA
+                      ref={recaptchaRef}
+                      sitekey={SITE_KEY}
+                      onChange={(token: string | null) => {
+                        setCaptchaToken(token || "");
+                        if (token) {
+                          setSubmitStatus(null);
+                        }
+                      }}
+                      onExpired={() => setCaptchaToken("")}
+                      onErrored={() =>
+                        setSubmitStatus({
+                          success: false,
+                          message: "reCAPTCHA could not be loaded. Please refresh and try again.",
+                        })
+                      }
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className="rounded-lg border border-slate-200 bg-slate-100 px-4 py-3 text-sm text-slate-700"
+                    role="status"
+                  >
+                    reCAPTCHA is not configured. Add `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` to enable this form.
+                  </div>
+                )}
+                {!captchaToken && SITE_KEY && (
+                  <p className="text-sm text-slate-600">
+                    Complete the reCAPTCHA challenge to enable submission.
+                  </p>
+                )}
+              </div>
+
               {submitStatus && (
                 <div
                   className={`p-4 rounded-lg ${
@@ -251,8 +307,8 @@ export function ContactSection() {
               <div className="flex flex-col gap-2">
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-600 hover:bg-cyan-700 text-white font-semibold rounded-lg transition-colors"
+                  disabled={isSubmitting || !captchaToken || !SITE_KEY}
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-600 hover:bg-cyan-700 disabled:bg-slate-300 disabled:text-slate-500 text-white font-semibold rounded-lg transition-colors"
                 >
                   <Send className="h-4 w-4" />
                   {isSubmitting ? "Sending..." : "Send Message"}
