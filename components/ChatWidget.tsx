@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-const STORAGE_KEY = "hosvi_chat_messages_v1";
+const STORAGE_KEY = "hosvi_chat_messages_v2";
 const MAX_MESSAGE_LENGTH = 1200;
 
 type ChatMessage = {
@@ -13,8 +13,7 @@ type ChatMessage = {
 const defaultMessages: ChatMessage[] = [
   {
     role: "assistant",
-    content:
-      "Hi! I can help with referral coordination between personal injury law firms and treatment provider clinics. We do not provide medical or legal advice. Ask about coverage areas, onboarding, or next steps.",
+    content: "Hi, How can we help you?",
   },
 ];
 
