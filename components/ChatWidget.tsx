@@ -10,12 +10,34 @@ type ChatMessage = {
   content: string;
 };
 
+const EMAIL_REGEX = /([A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})/gi;
+
 const defaultMessages: ChatMessage[] = [
   {
     role: "assistant",
     content: "Hi, How can we help you?",
   },
 ];
+
+const renderMessageContent = (content: string) => {
+  const parts = content.split(EMAIL_REGEX);
+
+  return parts.map((part, index) => {
+    if (part.match(EMAIL_REGEX)) {
+      return (
+        <a
+          key={`${part}-${index}`}
+          href={`mailto:${part}`}
+          className="font-medium underline underline-offset-2"
+        >
+          {part}
+        </a>
+      );
+    }
+
+    return <React.Fragment key={`${part}-${index}`}>{part}</React.Fragment>;
+  });
+};
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -101,7 +123,7 @@ export default function ChatWidget() {
         {
           role: "assistant",
           content:
-            "Sorry, I ran into a hiccup. Please try again or leave your contact info to follow up.",
+            "Sorry, I ran into a hiccup. Please try again or email contact@hosvi.com if you need a person to help.",
         },
       ]);
     } finally {
@@ -155,7 +177,7 @@ export default function ChatWidget() {
                         : "bg-white text-slate-900 border border-slate-200 rounded-2xl rounded-bl-md after:content-[''] after:absolute after:-left-2 after:bottom-2 after:border-y-[8px] after:border-r-[12px] after:border-y-transparent after:border-r-slate-200 before:content-[''] before:absolute before:-left-[11px] before:bottom-[9px] before:border-y-[7px] before:border-r-[10px] before:border-y-transparent before:border-r-white"
                     }`}
                   >
-                    {message.content}
+                    {renderMessageContent(message.content)}
                   </div>
                 </div>
               );
