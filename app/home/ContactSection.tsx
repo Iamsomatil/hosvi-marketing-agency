@@ -253,6 +253,23 @@ export function ContactSection() {
                     I consent to receive non-marketing text messages from Hosvi LLC regarding referral coordination updates, appointment scheduling, onboarding instructions, and case status notifications. Message frequency may vary. Message & data rates may apply. Text HELP for assistance, reply STOP to opt out.
                   </label>
                 </div>
+
+                <p>
+                  By submitting this form, you agree to our{" "}
+                  <Link
+                    href="/privacy-policy"
+                    className="text-cyan-700 hover:text-cyan-800 underline"
+                  >
+                    Privacy Policy
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/terms-of-service"
+                    className="text-cyan-700 hover:text-cyan-800 underline"
+                  >
+                    Terms of Service
+                  </Link>
+                </p>
               </div>
 
               <div className="space-y-2">
@@ -314,28 +331,7 @@ export function ContactSection() {
                   <Send className="h-4 w-4" />
                   {isSubmitting ? "Sending..." : "Send Message"}
                 </button>
-                <p className="text-xs text-slate-500 text-center">
-                  Consent is not a condition of purchase.
-                </p>
               </div>
-
-              <p className="text-sm text-slate-700">
-                By submitting this form, you agree to our{" "}
-                <Link
-                  href="/privacy-policy"
-                  className="text-cyan-700 hover:text-cyan-800 underline"
-                >
-                  Privacy Policy
-                </Link>{" "}
-                and{" "}
-                <Link
-                  href="/terms-of-service"
-                  className="text-cyan-700 hover:text-cyan-800 underline"
-                >
-                  Terms of Service
-                </Link>
-                .
-              </p>
             </form>
           </motion.div>
 
