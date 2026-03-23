@@ -272,19 +272,23 @@ export async function POST(request: Request) {
     }
     const resend = new Resend(apiKey);
 
-    await storeContactSubmission({
-      name: String(name),
-      email: String(email),
-      phone: normalizedPhone,
-      message: String(message),
-      smsMarketingConsent: normalizedSmsMarketingConsent,
-      smsNonMarketingConsent: normalizedSmsNonMarketingConsent,
-      timestamp,
-      sourceUrl: normalizedSourceUrl,
-      ipAddress: ip || "unknown",
-      userAgent,
-      company: company ? String(company) : undefined,
-    });
+    try {
+      await storeContactSubmission({
+        name: String(name),
+        email: String(email),
+        phone: normalizedPhone,
+        message: String(message),
+        smsMarketingConsent: normalizedSmsMarketingConsent,
+        smsNonMarketingConsent: normalizedSmsNonMarketingConsent,
+        timestamp,
+        sourceUrl: normalizedSourceUrl,
+        ipAddress: ip || "unknown",
+        userAgent,
+        company: company ? String(company) : undefined,
+      });
+    } catch (storageError) {
+      console.error("Failed to archive contact submission:", storageError);
+    }
 
     await sendAllowedSmsMessages({
       phone: normalizedPhone,
