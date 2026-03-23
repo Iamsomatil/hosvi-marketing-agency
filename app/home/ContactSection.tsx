@@ -20,7 +20,6 @@ export function ContactSection() {
     email: "",
     phone: "",
     message: "",
-    smsMarketingConsent: false,
     smsNonMarketingConsent: false,
     website: "",
   });
@@ -85,7 +84,6 @@ export function ContactSection() {
         email: "",
         phone: "",
         message: "",
-        smsMarketingConsent: false,
         smsNonMarketingConsent: false,
         website: "",
       });
@@ -225,20 +223,6 @@ export function ContactSection() {
                 <p>
                   By providing your phone number, you may choose to receive SMS communications from Hosvi LLC. Consent is not required to submit this form.
                 </p>
-
-                <div className="flex items-start gap-3">
-                  <input
-                    id="smsMarketingConsent"
-                    type="checkbox"
-                    name="smsMarketingConsent"
-                    checked={formData.smsMarketingConsent}
-                    onChange={handleChange}
-                    className="mt-1 h-4 w-4 rounded border-slate-300 text-cyan-700 focus:ring-cyan-600"
-                  />
-                  <label htmlFor="smsMarketingConsent" className="text-sm text-slate-700">
-                    I consent to receive marketing text messages, including special offers, discounts, and service updates, from Hosvi LLC at the phone number provided. Message frequency may vary. Message & data rates may apply. Text HELP for assistance, reply STOP to opt out.
-                  </label>
-                </div>
 
                 <div className="flex items-start gap-3">
                   <input

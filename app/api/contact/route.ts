@@ -11,7 +11,9 @@ const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RECAPTCHA_VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify";
 const CONTACT_RECIPIENT_EMAIL =
   process.env.CONTACT_RECIPIENT_EMAIL || "samson@hosvi.com";
-const CONTACT_SENDER_EMAIL = process.env.CONTACT_SENDER_EMAIL || "forms@hosvi.com";
+const DEFAULT_CONTACT_SENDER_EMAIL = "onboarding@resend.dev";
+const CONTACT_SENDER_EMAIL =
+  process.env.CONTACT_SENDER_EMAIL || DEFAULT_CONTACT_SENDER_EMAIL;
 
 const getClientIp = (request: Request) =>
   request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
@@ -30,6 +32,95 @@ const isRateLimited = (ip: string) => {
   }
   entry.count += 1;
   return false;
+};
+
+const sendAdminNotification = async ({
+  resend,
+  name,
+  company,
+  email,
+  phone,
+  message,
+  smsMarketingConsent,
+  smsNonMarketingConsent,
+  smsPermissions,
+  timestamp,
+  sourceUrl,
+  ip,
+  userAgent,
+}: {
+  resend: Resend;
+  name: string;
+  company?: string;
+  email: string;
+  phone: string;
+  message: string;
+  smsMarketingConsent: boolean;
+  smsNonMarketingConsent: boolean;
+  smsPermissions: ReturnType<typeof getSmsPermissions>;
+  timestamp: string;
+  sourceUrl: string;
+  ip: string;
+  userAgent: string;
+}) => {
+  const html = `
+    <h2>New Contact Form Submission</h2>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Company:</strong> ${company || "Not provided"}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
+    <p><strong>SMS Marketing Consent:</strong> ${
+      smsMarketingConsent ? "Yes" : "No"
+    }</p>
+    <p><strong>SMS Non-Marketing Consent:</strong> ${
+      smsNonMarketingConsent ? "Yes" : "No"
+    }</p>
+    <p><strong>Allow Marketing SMS:</strong> ${
+      smsPermissions.allowMarketingSms ? "Yes" : "No"
+    }</p>
+    <p><strong>Allow Service-Related SMS:</strong> ${
+      smsPermissions.allowServiceRelatedSms ? "Yes" : "No"
+    }</p>
+    <p><strong>Timestamp:</strong> ${timestamp}</p>
+    <p><strong>Source URL:</strong> ${sourceUrl || "Not provided"}</p>
+    <p><strong>IP Address:</strong> ${ip || "unknown"}</p>
+    <p><strong>User Agent:</strong> ${userAgent}</p>
+    <p><strong>Message:</strong></p>
+    <p>${message}</p>
+  `;
+
+  const primarySend = await resend.emails.send({
+    from: `Hosvi Contact <${CONTACT_SENDER_EMAIL}>`,
+    to: CONTACT_RECIPIENT_EMAIL,
+    replyTo: email,
+    subject: `New Contact Form Submission from ${name}`,
+    html,
+  });
+
+  if (!primarySend.error) {
+    return;
+  }
+
+  if (CONTACT_SENDER_EMAIL === DEFAULT_CONTACT_SENDER_EMAIL) {
+    throw primarySend.error;
+  }
+
+  console.error(
+    "Primary admin email sender failed. Retrying with Resend fallback sender:",
+    primarySend.error
+  );
+
+  const fallbackSend = await resend.emails.send({
+    from: `Hosvi Contact <${DEFAULT_CONTACT_SENDER_EMAIL}>`,
+    to: CONTACT_RECIPIENT_EMAIL,
+    replyTo: email,
+    subject: `New Contact Form Submission from ${name}`,
+    html,
+  });
+
+  if (fallbackSend.error) {
+    throw fallbackSend.error;
+  }
 };
 
 const verifyRecaptcha = async (token: string, ip: string) => {
@@ -201,38 +292,23 @@ export async function POST(request: Request) {
     });
 
     // Send email to admin
-    const { error: adminError } = await resend.emails.send({
-      from: `Hosvi Contact <${CONTACT_SENDER_EMAIL}>`,
-      to: CONTACT_RECIPIENT_EMAIL,
-      subject: `New Contact Form Submission from ${name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Company:</strong> ${company || "Not provided"}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Phone:</strong> ${normalizedPhone || "Not provided"}</p>
-        <p><strong>SMS Marketing Consent:</strong> ${
-          normalizedSmsMarketingConsent ? "Yes" : "No"
-        }</p>
-        <p><strong>SMS Non-Marketing Consent:</strong> ${
-          normalizedSmsNonMarketingConsent ? "Yes" : "No"
-        }</p>
-        <p><strong>Allow Marketing SMS:</strong> ${
-          smsPermissions.allowMarketingSms ? "Yes" : "No"
-        }</p>
-        <p><strong>Allow Service-Related SMS:</strong> ${
-          smsPermissions.allowServiceRelatedSms ? "Yes" : "No"
-        }</p>
-        <p><strong>Timestamp:</strong> ${timestamp}</p>
-        <p><strong>Source URL:</strong> ${normalizedSourceUrl || "Not provided"}</p>
-        <p><strong>IP Address:</strong> ${ip || "unknown"}</p>
-        <p><strong>User Agent:</strong> ${userAgent}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
-    });
-
-    if (adminError) {
+    try {
+      await sendAdminNotification({
+        resend,
+        name: String(name),
+        company: company ? String(company) : undefined,
+        email: String(email),
+        phone: normalizedPhone,
+        message: String(message),
+        smsMarketingConsent: normalizedSmsMarketingConsent,
+        smsNonMarketingConsent: normalizedSmsNonMarketingConsent,
+        smsPermissions,
+        timestamp,
+        sourceUrl: normalizedSourceUrl,
+        ip,
+        userAgent,
+      });
+    } catch (adminError) {
       console.error("Error sending admin email:", adminError);
       return NextResponse.json(
         { error: "Failed to send email" },
